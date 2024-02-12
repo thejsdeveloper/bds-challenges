@@ -1,3 +1,12 @@
+# BigDevSoon | 100 Challenges
+
+This is a part of a challenge series on [Big Dev Soon](https://bigdevsoon.me/)
+
+## Challenge 1
+![screenshot of challenge](/public/assets/screnshot.png)
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
