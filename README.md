@@ -2,7 +2,7 @@
 
 This is a part of a challenge series on [Big Dev Soon](https://bigdevsoon.me/)
 
-## Challenge 1
+## Challenge 1 | Profile Card
 ![screenshot of challenge](/public/assets/screnshot.png)
 
 
