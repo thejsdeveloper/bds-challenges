@@ -1,5 +1,7 @@
 import avatarUrl from "#/assets/avatar.jpeg";
 import Image from "next/image";
+import Link from "next/link";
+import { PropsWithChildren } from "react";
 import { FaDribbble, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
@@ -18,24 +20,30 @@ export default function ProfileCard() {
         <div className="flex flex-col justify-center p-4 text-center gap-6">
           <div>
             <h1 className="text-lg font-bold">Johnny Rogers</h1>
-            <p className="text-sm text-slate-500">@johnnyrogers</p>
+            <button className="text-sm text-slate-500 outline-none hover:text-[#98314F] focus:text-[#98314F] hover:scale-125  focus:scale-125 transition-all">
+              <Link href="/challenges/1">@johnnyrogers</Link>
+            </button>
           </div>
           <div className="flex justify-center gap-5">
-            <button>
+            <IconButton href="/challenges/1">
               <FaFacebook />
-            </button>
-            <button>
+            </IconButton>
+
+            <IconButton href="/challenges/1">
               <FaLinkedin />
-            </button>
-            <button>
+            </IconButton>
+
+            <IconButton href="/challenges/1">
               <FaXTwitter />
-            </button>
-            <button>
+            </IconButton>
+
+            <IconButton href="/challenges/1">
               <RiInstagramFill />
-            </button>
-            <button>
+            </IconButton>
+
+            <IconButton href="/challenges/1">
               <FaDribbble />
-            </button>
+            </IconButton>
           </div>
           <p className="text-base text-center">
             Crafting brand and communication strategies, creating visual
@@ -44,10 +52,10 @@ export default function ProfileCard() {
           </p>
         </div>
         <div className="flex flex-wrap justify-center p-4 gap-4">
-          <button className="rounded-full px-12 py-2 bg-pink-500 text-white text-sm">
+          <button className="rounded-full px-12 py-2 bg-pink-500 text-white text-sm hover:scale-110 focus:scale-110 transition-all outline-none">
             Follow
           </button>
-          <button className="rounded-full px-12 py-2 text-slate-500 border text-sm">
+          <button className="rounded-full px-12 py-2 text-slate-500 border text-sm hover:scale-110 focus:scale-110 transition-all outline-none">
             Message
           </button>
         </div>
@@ -55,3 +63,16 @@ export default function ProfileCard() {
     </div>
   );
 }
+
+type IconButtonProps = { href: string } & PropsWithChildren;
+
+const IconButton = ({ children, href }: IconButtonProps) => {
+  return (
+    <Link
+      href={href}
+      className="outline-none text-xl hover:text-[#98314F] hover:scale-150 focus:text-[#98314F] focus:scale-150 transition-all"
+    >
+      {children}
+    </Link>
+  );
+};
