@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import Head from "next/head";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -19,6 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        {/* @ts-ignore */}
+        <bds>This is bds tag</bds>
+      </Head>
       <body className={roboto.className}>
         <main className="min-h-screen bg-gradient-to-b from-blue-500 to-cyan-500">
           {children}
