@@ -4,13 +4,14 @@ import { FunctionComponent, PropsWithChildren } from "react";
 export default function Home() {
   return (
     <>
-      <header className="sticky top-0  flex items-center px-16 py-4">
+      <header className="sticky top-0  flex items-center px-16 py-4 border-b-gray-50 shadow-lg backdrop-blur-md">
         <h1 className="text-2xl font-bold text-white">
           BigDevSoon | Challenges
         </h1>
       </header>
-      <main className="px-16 py-5">
+      <main className="px-16 py-5 flex gap-4">
         <LinkButton href={"/challenges/1"}>Challenge 1</LinkButton>
+        <LinkButton href={"/challenges/2"}>Challenge 2</LinkButton>
       </main>
     </>
   );
