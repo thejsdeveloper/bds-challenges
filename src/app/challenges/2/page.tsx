@@ -47,7 +47,7 @@ function Challenge2() {
   return (
     <main className="h-screen bg-white flex items-center justify-center ">
       <section
-        className="px-5 w-100 md:w-11/12 
+        className="px-5 md:max-w-5xl
       flex flex-col-reverse 
       md:flex-row md:justify-center 
       items-center md:items-start
@@ -86,7 +86,7 @@ function Challenge2() {
           <Image
             src={selectedImage.large}
             alt={selectedImage.alt}
-            className="mix-blend-multiply"
+            className="mix-blend-multiply object-cover"
             objectFit="contain"
           />
         </div>
