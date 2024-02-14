@@ -75,7 +75,7 @@ const FOOTER_OPTIONS = [
 export default function Challenge3() {
   return (
     <section className="min-h-screen bg-slate-100 flex justify-center items-center">
-      <div className="flex flex-col p-4 | h-screen w-screen md:h-[90vh] md:w-[50vw] lg:w-[30vw] |  bg-white rounded-0 md:rounded-3xl shadow-lg">
+      <div className="flex flex-col p-4 | h-screen w-screen md:h-[90vh] md:w-[30vw] lg:w-[20vw] |  bg-white rounded-0 md:rounded-3xl shadow-lg">
         {/* HEADER */}
         <header className="flex gap-4 py-4">
           <Image
@@ -91,11 +91,11 @@ export default function Challenge3() {
         <hr />
 
         {/* OPTION */}
-        <div className="py-4">
+        <nav className="list-none py-4">
           {USER_OPTIONS.map((option) => {
             return <OptionItem key={option.text} {...option} />;
           })}
-        </div>
+        </nav>
 
         <hr />
         {/* SETTINGS */}
@@ -129,7 +129,7 @@ const OptionItem = ({
 }) => {
   const Icon = icon;
   return (
-    <div className="flex items-center gap-4 py-4 ">
+    <ul className="flex items-center gap-4 py-4 ">
       <div className="bg-indigo-100 p-2 rounded-md">
         <Icon />
       </div>
@@ -137,7 +137,7 @@ const OptionItem = ({
       <Link href={url}>
         <IoIosArrowForward />
       </Link>
-    </div>
+    </ul>
   );
 };
 
