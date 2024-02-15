@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header/Header";
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "BigDevSoon | 100 Challenges",
@@ -19,10 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
-        <main className="min-h-screen bg-gradient-to-b from-blue-500 to-cyan-500">
-          {children}
-        </main>
+      <body className={inter.className}>
+        <div className="w-screen h-screen bg-gradient-to-b from-blue-100 to-red-100 flex justify-center">
+          <div className="w-full lg:max-w-screen-2xl">
+            <Header />
+            {children}
+          </div>
+        </div>
       </body>
       {/* @ts-ignore */}
       <bds />
