@@ -57,7 +57,7 @@ function Challenge5() {
               <IoWalletOutline size={40} />
               <div>
                 <p className="uppercase tracking-tighter">Budget</p>
-                <span className="text-chai">Under 50 INR</span>
+                <span className="text-chai">Under ₹ 50 </span>
               </div>
             </div>
           </div>
