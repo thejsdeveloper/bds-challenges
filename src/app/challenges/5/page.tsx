@@ -11,18 +11,30 @@ const PRIMARY_COLOR = "#A43B08";
 const SECONDARY_COLOR = "#FFBB65";
 function Challenge5() {
   return (
-    <section className="bg-white grid grid-cols-2 my-4 rounded-lg flex-1 overflow-hidden">
+    <section className="bg-white grid grid-col-1 md:grid-cols-2 md:my-4 md:rounded-lg flex-1 overflow-y-scroll md:overflow-hidden">
       {/**image */}
       <div className="relative">
-        <Image src={chai} alt="India tea" fill />
-        <h1 className="absolute bottom-36 left-0 | py-6 px-3 | text-white text-xl font-semibold bg-chai-dark/90 uppercase">
+        <h1 className="hidden md:block z-50 absolute md:top-[55%] lg:top-[65%] left-0 | py-6 px-3 | text-white text-xl font-semibold bg-chai-dark/90 uppercase">
           Ginger Cardamom Chai (Tea)
         </h1>
+        <Image
+          src={chai}
+          alt="India tea"
+          objectFit="cover"
+          className="md:hidden w-100"
+        />
+        <Image
+          src={chai}
+          alt="India tea"
+          fill
+          objectFit="cover"
+          className="hidden md:block"
+        />
       </div>
       {/** Recipe Section */}
-      <div className="px-8 py-16 relative ">
+      <div className="px-4 md:px-8 py-8 md:py-16 relative">
         {/** Recipe Title */}
-        <div className="absolute -left-1/3 | bg-white | flex flex-col gap-4 p-8 ">
+        <div className="relative md:absolute md:-left-1/3 | bg-white | flex flex-col gap-4 p-0 md:p-8 ">
           <div className="flex items-center gap-2">
             <FilledStar fill={SECONDARY_COLOR} size={24} />
             <FilledStar fill={SECONDARY_COLOR} size={24} />
@@ -31,30 +43,30 @@ function Challenge5() {
             <UnFilledStar size={24} color={SECONDARY_COLOR} />
             <p className="font-black/90 text-sm">(127)</p>
           </div>
-          <h1 className="text-5xl text-chai-dark font-bold">
+          <h1 className="text-2xl md:text-5xl text-chai-dark font-bold">
             Ginger Cardamom Chai (Tea)
           </h1>
         </div>
         {/** Recipe Details */}
-        <div className="mt-44 overflow-y-scroll h-[70%]">
+        <div className="mt-10 md:mt-56 lg:mt-44 md:overflow-y-scroll md:h-[70%]">
           {/** Recipe time */}
-          <div className="flex gap-4 | text-[12px] font-bold   text-black/70">
-            <div className="flex gap-2 ">
-              <CiStopwatch size={40} />
+          <div className="flex gap-2 md:gap-4 | text-[12px] font-bold   text-black/70">
+            <div className="flex items-center gap-2">
+              <CiStopwatch className="text-3xl md:text-5xl" />
               <div>
                 <p className="uppercase tracking-tighter">Total Time</p>
                 <span className="text-chai">10 minutes</span>
               </div>
             </div>
-            <div className="flex gap-2 ">
-              <LiaAwardSolid size={40} />
+            <div className="flex items-center gap-2 ">
+              <LiaAwardSolid className="text-3xl md:text-5xl" />
               <div>
                 <p className="uppercase tracking-tighter">Levels</p>
                 <span className="text-chai">10 minutes</span>
               </div>
             </div>
-            <div className="flex gap-2">
-              <IoWalletOutline size={40} />
+            <div className="flex items-center gap-2">
+              <IoWalletOutline className="text-3xl md:text-5xl" />
               <div>
                 <p className="uppercase tracking-tighter">Budget</p>
                 <span className="text-chai">Under ₹ 50 </span>
