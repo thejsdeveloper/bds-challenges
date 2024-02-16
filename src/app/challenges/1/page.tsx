@@ -8,7 +8,7 @@ import { RiInstagramFill } from "react-icons/ri";
 
 export default function ProfileCard() {
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="flex-1 flex justify-center items-center">
       <div className="rounded-3xl bg-white max-w-sm overflow-hidden">
         <div className="flex justify-center p-4 pb-12 bg-wave bg-no-repeat">
           <Image

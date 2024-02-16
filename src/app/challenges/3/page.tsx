@@ -74,7 +74,7 @@ const FOOTER_OPTIONS = [
 
 export default function Challenge3() {
   return (
-    <section className="min-h-screen bg-slate-100 flex justify-center items-center">
+    <section className=" bg-slate-100  flex-1 flex justify-center items-center my-4 rounded-lg">
       <div className="flex flex-col p-4 | h-screen w-screen md:h-[70vh] md:w-[30vw] lg:w-[20vw] |  bg-white rounded-0 md:rounded-3xl shadow-lg">
         {/* HEADER */}
         <header className="flex gap-4 py-4">

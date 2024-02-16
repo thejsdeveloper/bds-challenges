@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="w-screen h-screen bg-gradient-to-b from-blue-100 to-red-100 flex justify-center">
-          <div className="w-full max-w-screen-2xl">
+          <div className="w-full max-w-screen-2xl flex flex-col">
             <Header />
             {children}
           </div>

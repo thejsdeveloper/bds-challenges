@@ -45,7 +45,7 @@ function Challenge2() {
   const selectedImage = PRODUCT.images[selectedImageIndex];
 
   return (
-    <main className="h-screen bg-white flex items-center justify-center ">
+    <main className="bg-white flex-1 flex justify-center items-center my-4 rounded-lg">
       <section
         className="px-5 md:max-w-5xl
       flex flex-col-reverse 
