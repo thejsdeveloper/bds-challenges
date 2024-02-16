@@ -1,10 +1,17 @@
+"use client";
 import Map from "@/app/components/Map/Map";
 import { Pulse } from "@/app/components/Pulse/Pulse";
-import React, { ComponentProps, ElementType } from "react";
-
+import { motion } from "framer-motion";
+import { ComponentProps } from "react";
+import { pageVisitVariant } from "../animate";
 function Challenge4() {
   return (
-    <div className="h-[80%] mt-10 w-full flex justify-center">
+    <motion.div
+      variants={pageVisitVariant}
+      initial="initial"
+      animate="animate"
+      className="h-[80%] mt-10 w-full flex justify-center"
+    >
       <div className="py-32 px-20 | rounded-xl relative overflow-hidden | bg-gradient-to-t from-[#FF007A]/80 from-10%">
         <div>
           <div className="absolute left-0 bottom-0 w-2/3">
@@ -89,7 +96,7 @@ function Challenge4() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

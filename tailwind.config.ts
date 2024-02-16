@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: "var(--ff-inter)",
+        designer: "var(--ff-black)",
+      },
       colors: {
         chai: {
           DEFAULT: "#FFA41B",

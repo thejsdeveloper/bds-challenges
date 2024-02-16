@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "./components/Header/Header";
+import { Black_Ops_One, Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--ff-inter" });
+const blackOpsOne = Black_Ops_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--ff-black",
+});
 
 export const metadata: Metadata = {
   title: "BigDevSoon | 100 Challenges",
@@ -17,13 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="w-screen h-screen bg-gradient-to-b from-blue-100 to-red-100 flex justify-center">
-          <div className="w-full max-w-screen-2xl flex flex-col">
-            <Header />
-            {children}
-          </div>
-        </div>
+      <body className={`${blackOpsOne.variable} ${inter.variable}`}>
+        {children}
       </body>
       {/* @ts-ignore */}
       <bds />

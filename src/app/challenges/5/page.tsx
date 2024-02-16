@@ -1,17 +1,25 @@
-import React from "react";
+"use client";
 import chai from "#/assets/challenge/chai.webp";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { MdOutlineStar as FilledStar } from "react-icons/md";
-import { MdStarOutline as UnFilledStar } from "react-icons/md";
 import { CiStopwatch } from "react-icons/ci";
-import { LiaAwardSolid } from "react-icons/lia";
 import { IoWalletOutline } from "react-icons/io5";
+import { LiaAwardSolid } from "react-icons/lia";
+import {
+  MdOutlineStar as FilledStar,
+  MdStarOutline as UnFilledStar,
+} from "react-icons/md";
+import { pageVisitVariant } from "../animate";
 
-const PRIMARY_COLOR = "#A43B08";
 const SECONDARY_COLOR = "#FFBB65";
 function Challenge5() {
   return (
-    <section className="bg-white grid grid-col-1 md:grid-cols-2 md:my-4 md:rounded-lg flex-1 overflow-y-scroll md:overflow-hidden">
+    <motion.section
+      variants={pageVisitVariant}
+      initial="initial"
+      animate="animate"
+      className="bg-white grid grid-col-1 md:grid-cols-2 md:my-4 md:rounded-lg flex-1 overflow-y-scroll md:overflow-hidden"
+    >
       {/**image */}
       <div className="relative">
         <h1 className="hidden md:block z-50 absolute md:top-[55%] lg:top-[65%] left-0 | py-6 px-3 | text-white text-xl font-semibold bg-chai-dark/90 uppercase">
@@ -156,7 +164,7 @@ function Challenge5() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

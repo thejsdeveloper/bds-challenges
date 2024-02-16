@@ -1,14 +1,21 @@
+"use client";
 import avatarUrl from "#/assets/avatar.jpeg";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 import { FaDribbble, FaFacebook, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
-
+import { pageVisitVariant } from "../animate";
 export default function ProfileCard() {
   return (
-    <div className="flex-1 flex justify-center items-center">
+    <motion.div
+      variants={pageVisitVariant}
+      initial="initial"
+      animate="animate"
+      className="flex-1 flex justify-center items-center"
+    >
       <div className="rounded-3xl bg-white max-w-sm overflow-hidden">
         <div className="flex justify-center p-4 pb-12 bg-wave bg-no-repeat">
           <Image
@@ -60,7 +67,7 @@ export default function ProfileCard() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

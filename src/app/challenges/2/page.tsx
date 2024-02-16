@@ -1,13 +1,15 @@
 "use client";
-import Image from "next/image";
-import React from "react";
 import watch1 from "#/assets/challenge2/watch1.jpg";
 import watch2 from "#/assets/challenge2/watch2.jpg";
 import watch3 from "#/assets/challenge2/watch3.jpg";
+import Image from "next/image";
+import React from "react";
 
 import watch1_1 from "#/assets/challenge2/watch1_1.jpg";
 import watch2_2 from "#/assets/challenge2/watch2_2.jpg";
 import watch3_3 from "#/assets/challenge2/watch3_3.jpg";
+import { motion } from "framer-motion";
+import { pageVisitVariant } from "../animate";
 
 const PRODUCT = {
   brand: "LOUIS DEVIN",
@@ -45,7 +47,12 @@ function Challenge2() {
   const selectedImage = PRODUCT.images[selectedImageIndex];
 
   return (
-    <main className="bg-white flex-1 flex justify-center items-center my-4 rounded-lg">
+    <motion.main
+      variants={pageVisitVariant}
+      initial="initial"
+      animate="animate"
+      className="bg-white flex-1 flex justify-center items-center my-4 rounded-lg"
+    >
       <section
         className="px-5 md:max-w-5xl
       flex flex-col-reverse 
@@ -137,7 +144,7 @@ function Challenge2() {
           </button>
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 }
 

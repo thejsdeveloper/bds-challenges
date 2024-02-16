@@ -1,10 +1,14 @@
-import React from "react";
+import Link from "next/link";
 
 function Header() {
   return (
-    <header className="flex items-center justify-between py-4">
+    <header className="flex items-center justify-between py-5 font-designer">
       <nav>
-        <h1 className="text-2xl font-bold text-black"> 100 days Challenges</h1>
+        <Link href={"/"}>
+          <h1 className="text-4xl font-bold text-black">
+            1 0 0 days Challenges
+          </h1>
+        </Link>
       </nav>
     </header>
   );

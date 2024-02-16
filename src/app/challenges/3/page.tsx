@@ -1,16 +1,16 @@
-import Image from "next/image";
+"use client";
 import avatarUrl from "#/assets/avatar.jpeg";
-import { MdPeopleAlt } from "react-icons/md";
-import { IoIosPeople } from "react-icons/io";
-import { IoMail } from "react-icons/io5";
-import { FaBell, FaRegUser, FaQ } from "react-icons/fa6";
-import { MdLocationOn } from "react-icons/md";
-import { IoSettingsSharp, IoMailOutline } from "react-icons/io5";
-import { RiHomeLine } from "react-icons/ri";
-import { BsGraphUpArrow } from "react-icons/bs";
-import { IconType } from "react-icons";
-import { IoIosArrowForward } from "react-icons/io";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { IconType } from "react-icons";
+import { BsGraphUpArrow } from "react-icons/bs";
+import { FaBell, FaQ, FaRegUser } from "react-icons/fa6";
+import { IoIosArrowForward, IoIosPeople } from "react-icons/io";
+import { IoMail, IoMailOutline, IoSettingsSharp } from "react-icons/io5";
+import { MdLocationOn, MdPeopleAlt } from "react-icons/md";
+import { RiHomeLine } from "react-icons/ri";
+import { pageVisitVariant } from "../animate";
 
 const USER_OPTIONS = [
   {
@@ -74,7 +74,12 @@ const FOOTER_OPTIONS = [
 
 export default function Challenge3() {
   return (
-    <section className=" bg-slate-100  flex-1 flex justify-center items-center my-4 rounded-lg">
+    <motion.section
+      variants={pageVisitVariant}
+      initial="initial"
+      animate="animate"
+      className=" bg-slate-100  flex-1 flex justify-center items-center my-4 rounded-lg"
+    >
       <div className="flex flex-col p-4 | h-screen w-screen md:h-[70vh] md:w-[30vw] lg:w-[20vw] |  bg-white rounded-0 md:rounded-3xl shadow-lg">
         {/* HEADER */}
         <header className="flex gap-4 py-4">
@@ -114,7 +119,7 @@ export default function Challenge3() {
           })}
         </footer>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
