@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .chai-checkbox {
+    @apply appearance-none w-4 h-4 border-2 border-black/90 rounded-sm mt-1 shrink-0 checked:bg-chai checked:border-0;
+  }
+}

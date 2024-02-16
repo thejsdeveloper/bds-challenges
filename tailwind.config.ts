@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        chai: {
+          DEFAULT: "#FFA41B",
+          dark: "#D46515",
+        },
+      },
       backgroundImage: {
         wave: "url('/assets/curve.svg')",
       },
