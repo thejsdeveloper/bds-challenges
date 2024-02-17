@@ -46,6 +46,7 @@ const ImageSlider = () => {
           alt={currentImage.alt}
           className="rounded-sm object-cover"
           fill
+          priority
         />
       </div>
       <SliderControl onClick={goToNext}>
