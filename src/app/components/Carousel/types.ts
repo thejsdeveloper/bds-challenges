@@ -16,7 +16,10 @@ export type ImageSliderProps = {
   onPreviousClick: () => void;
 };
 
+export type Direction = 0 | 1 | -1;
+
 export type CarouselContextType = {
+  direction: Direction;
   images: Image[];
   currentImage: Image;
   setCurrentImageIndex: (index: number) => void;

@@ -1,22 +1,10 @@
 "use client";
 
-import { Variants } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useCarousel } from "./CarouselProvider";
-
-const variants: Variants = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeIn",
-    },
-  },
-};
+import { getPreviewVariants, sliderVariants, variantsKeys } from "./anim";
 
 const SliderControl = ({
   children,
@@ -33,46 +21,60 @@ const SliderControl = ({
 };
 
 const ImageSlider = () => {
-  const { currentImage, goToNext, goToPrevious } = useCarousel();
+  const { currentImage, goToNext, goToPrevious, direction } = useCarousel();
 
   return (
-    <>
+    <AnimatePresence initial={false} custom={direction}>
       <SliderControl onClick={goToPrevious}>
         <BsArrowLeft />
       </SliderControl>
-      <div className="h-full w-full relative">
-        <Image
-          src={currentImage.src}
-          alt={currentImage.alt}
-          className="rounded-sm object-cover"
-          fill
-          priority
-        />
+      <div className="h-full w-full relative overflow-hidden">
+        <motion.div
+          variants={sliderVariants}
+          {...variantsKeys}
+          key={crypto.randomUUID()}
+          custom={direction}
+          className="absolute inset-0 w-full h-full object-center"
+        >
+          <Image
+            src={currentImage.src}
+            alt={currentImage.alt}
+            className="rounded-sm object-cover"
+            fill
+            priority
+          />
+        </motion.div>
       </div>
       <SliderControl onClick={goToNext}>
         <BsArrowRight />
       </SliderControl>
-    </>
+    </AnimatePresence>
   );
 };
 
 const ImagePreviewStrip = () => {
   const { images, currentIndex, setCurrentImageIndex } = useCarousel();
-  return images.map((image, i) => {
-    const selected = i === currentIndex;
-    const selectedClass = "border-white border-2 scale-105";
-    return (
-      <button
-        onClick={() => setCurrentImageIndex(i)}
-        key={i}
-        className={`bg-teal-100 relative h-full w-full rounded-sm ${
-          selected ? selectedClass : "scale-90"
-        }`}
-      >
-        <Image src={image.src} alt={image.alt} fill />
-      </button>
-    );
-  });
+  return (
+    <AnimatePresence initial={false}>
+      {images.map((image, i) => {
+        const selected = i === currentIndex;
+        const selectedClass = "border-white border-2";
+        return (
+          <motion.button
+            onClick={() => setCurrentImageIndex(i)}
+            key={i}
+            className={`relative h-full w-full rounded-sm ${
+              selected ? selectedClass : ""
+            }`}
+            variants={getPreviewVariants(selected)}
+            {...variantsKeys}
+          >
+            <Image src={image.src} alt={image.alt} fill priority />
+          </motion.button>
+        );
+      })}
+    </AnimatePresence>
+  );
 };
 
 function Carousel() {
