@@ -6,7 +6,7 @@ function Header() {
       <nav>
         <Link href={"/"}>
           <h1 className="text-4xl font-bold text-black">
-            1 0 0 days Challenges
+            1 0 0 days UI Challenge
           </h1>
         </Link>
       </nav>
