@@ -11,6 +11,7 @@ import image4 from "#/assets/challenge/carousel/image4.jpeg";
 import image5 from "#/assets/challenge/carousel/image5.jpeg";
 import image6 from "#/assets/challenge/carousel/image6.jpeg";
 import { Image } from "@/app/components/Carousel/types";
+import { pageVisitVariant } from "../animate";
 
 const IMAGES: Image[] = [
   {
@@ -41,7 +42,7 @@ const IMAGES: Image[] = [
 function Challenge6() {
   return (
     <motion.section
-      // variants={pageVisitVariant}
+      variants={pageVisitVariant}
       initial="initial"
       animate="animate"
       className="my-4 md:rounded-lg flex-1 bg-black"
