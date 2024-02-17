@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "100 Days UI Challenge",
   description: "My solutions for BigDev Soon 100 challenges",
 };
+
 function Challenges({
   children,
 }: Readonly<{
