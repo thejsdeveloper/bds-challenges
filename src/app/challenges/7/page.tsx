@@ -89,7 +89,7 @@ type FormInputProps = Partial<ElementType<HTMLInputElement>> & {
   id: string;
 };
 
-export const FormInput = ({
+const FormInput = ({
   label,
   Icon,
   id,
