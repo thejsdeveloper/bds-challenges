@@ -3,6 +3,7 @@ import waveSrc from "#/assets/challenge/waves.svg";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { ElementType } from "react";
 import { IconType } from "react-icons";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
@@ -81,7 +82,7 @@ function Challenge7() {
 
 export default Challenge7;
 
-type FormInputProps = Partial<HTMLInputElement> & {
+type FormInputProps = Partial<ElementType<HTMLInputElement>> & {
   label: string;
   Icon: IconType;
   type?: "text" | "password";
@@ -109,8 +110,8 @@ export const FormInput = ({
           id={id}
           type={type}
           className="bg-inherit flex-1"
-          {...props}
           tabIndex={2}
+          {...props}
         />
       </div>
       <Icon className="text-zinc-500 mx-auto" />
