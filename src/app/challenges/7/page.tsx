@@ -15,25 +15,27 @@ function Challenge7() {
       variants={pageVisitVariant}
       initial="initial"
       animate="animate"
-      className="my-4 pl-20 md:rounded-lg flex-1 flex items-center bg-white relative"
+      className="my-4 py-2 px-2 sm:pl-20 md:rounded-lg flex-1 flex items-center bg-white relative"
     >
       <div className="absolute right-0 h-full w-1/2">
         <Image src={waveSrc} alt="waves background" fill />
       </div>
 
       <form
-        className="flex flex-col gap-4"
+        className="flex flex-col gap-4 isolate flex-1 sm:flex-none"
         onSubmit={(e) => {
           e.preventDefault();
           alert("Your Form is submitted successfully");
         }}
       >
-        <h2 className="text-zinc-500 uppercase text-base font-[600]">
+        <h2 className="text-zinc-500 uppercase text-xs sm:text-base font-[600]">
           Start For Free
         </h2>
-        <h1 className="text-black font-bold text-4xl">Create new account</h1>
-        <div className="flex flex-col gap-4 mt-10">
-          <div className="flex gap-4">
+        <h1 className="text-black font-bold text-xl sm:text-4xl">
+          Create new account
+        </h1>
+        <div className="flex flex-col gap-4 mt-5 sm:mt-10">
+          <div className="flex gap-4 flex-col sm:flex-row">
             <FormInput
               label="First name"
               id="firstName"
