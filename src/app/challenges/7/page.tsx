@@ -87,6 +87,7 @@ type FormInputProps = Partial<ElementType<HTMLInputElement>> & {
   Icon: IconType;
   type?: "text" | "password";
   id: string;
+  required?: boolean;
 };
 
 const FormInput = ({
@@ -94,6 +95,7 @@ const FormInput = ({
   Icon,
   id,
   type = "text",
+  required = false,
   ...props
 }: FormInputProps) => {
   return (
