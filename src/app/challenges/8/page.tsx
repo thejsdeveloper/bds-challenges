@@ -3,7 +3,7 @@ import { EVENTS_DATA } from "@/app/api/challenges/challenge8/data";
 import { EventInfo } from "@/app/api/challenges/challenge8/event";
 import { motion } from "framer-motion";
 import { Button, GridList, GridListItem } from "react-aria-components";
-import { HiTicket } from "react-icons/hi";
+import { BsTicketPerforatedFill } from "react-icons/bs";
 import { twMerge } from "tailwind-merge";
 import { pageVisitVariant } from "../animate";
 
@@ -71,7 +71,7 @@ const EventItem = ({
         </p>
       </div>
 
-      <div className="col-span-3 xl:col-span-2 flex items-center justify-center text-base">
+      <div className="col-span-3 xl:col-span-2 flex items-center justify-center text-base sm:text-xl">
         {eventItem.ticketsSoldOut ? (
           <p className="font-medium">Sold out!</p>
         ) : (
@@ -81,10 +81,10 @@ const EventItem = ({
             className="flex justify-center items-center gap-2 py-2 px-3 | bg-black text-white rounded-lg
               hover:bg-white hover:text-black hover:ring-black hover:ring-2
               focus:bg-white focus:text-black focus:ring-black focus:ring-2
-              outline-none
+              outline-none group
             "
           >
-            <HiTicket />
+            <BsTicketPerforatedFill className="group-hover:animate-wiggle transition-all group-hover:text-red-500 " />
             Buy a Ticket
           </Button>
         )}
