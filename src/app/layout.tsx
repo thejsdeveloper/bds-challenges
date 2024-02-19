@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Black_Ops_One, Inter } from "next/font/google";
-
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--ff-inter" });
@@ -24,9 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${blackOpsOne.variable} ${inter.variable}`}>
         {children}
+        <bds />
       </body>
-      {/* @ts-ignore */}
-      <bds />
     </html>
   );
 }
