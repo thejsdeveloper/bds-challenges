@@ -16,8 +16,10 @@ function Challenge8() {
       animate="animate"
       className="flex-1 flex-col | my-4 p-2 sm:p-20 |  bg-violet-100 | md:rounded-lg"
     >
-      <h1 className="font-medium text-3xl">Music events</h1>
-      <p className="text-gray-600 text-xl mt-2">in London, United Kingdom</p>
+      <h1 className="font-medium text-2xl md:text-3xl">Music events</h1>
+      <p className="text-gray-600 text-base md:text-xl mt-2">
+        in London, United Kingdom
+      </p>
       <GridList
         aria-label="List of Music Events in London"
         items={EVENTS_DATA.events}
@@ -45,7 +47,7 @@ const EventItem = ({
     <GridListItem
       textValue={eventItem.name}
       id={eventItem.id}
-      className="grid grid-cols-12 place-items-center gap-4 | p-4  | bg-white rounded-xl
+      className="flex  flex-col md:grid grid-cols-12 place-items-center gap-4 | p-4  | bg-white rounded-xl
         focus:ring-red-200 focus:ring-2
         focus:shadow-lg focus:shadow-red-200
         outline-none
@@ -53,21 +55,23 @@ const EventItem = ({
     >
       <div
         className={twMerge(
-          `col-span-1 flex flex-col items-center | px-2 py-3 h-fit | rounded-lg`,
+          `w-1/2 md:w-auto col-span-2 xl:col-span-1 flex flex-row md:flex-col gap-2 items-center  justify-center md:justify-start| px-2 py-1 md:py-3 h-fit | rounded-lg`,
           bgColor
         )}
       >
-        <p className="text-[12px] font-medium">{eventItem.date}</p>
-        <p className="text-3xl font-normal">{eventItem.time}</p>
+        <p className="text-[12px] font-medium text-center">{eventItem.date}</p>
+        <p className="text-base md:text-3xl font-normal">{eventItem.time}</p>
       </div>
-      <div className="col-span-9">
-        <p className="text-2xl font-medium block">{eventItem.name}</p>
-        <p className="text-gray-600 text-wrap mt-2 block">
+      <div className="col-span-7 xl:col-span-9">
+        <p className="text-xl md:text-2xl font-medium block">
+          {eventItem.name}
+        </p>
+        <p className="text-gray-600 text-wrap mt-2 block text-sm md:text-base">
           {eventItem.description}
         </p>
       </div>
 
-      <div className="col-span-2 flex items-center justify-center ">
+      <div className="col-span-3 xl:col-span-2 flex items-center justify-center text-base">
         {eventItem.ticketsSoldOut ? (
           <p className="font-medium">Sold out!</p>
         ) : (
