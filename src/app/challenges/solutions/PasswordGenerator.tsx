@@ -126,13 +126,13 @@ export const PasswordGenerator = () => {
                     setSetShowCopied(true);
                     navigator.clipboard.writeText(generatedPassword);
                   }}
-                  className="outline-none p-1 rounded-full focus-visible:border focus-visible:border-amber-700 focus-visible:ring-2  ring-offset-2 ring-amber-700  "
+                  className="outline-none p-1 rounded-full focus-visible:border focus-visible:border-amber-700 focus-visible:ring-2  ring-offset-2 ring-amber-700 pressed:scale-90 transition ease-in-out"
                 >
                   <IoIosCopy />
                 </Button>
                 <Button
                   type="reset"
-                  className="outline-none p-1 rounded-full focus-visible:border focus-visible:border-amber-700 focus-visible:ring-2  ring-offset-2 ring-amber-700  "
+                  className="outline-none p-1 rounded-full focus-visible:border focus-visible:border-amber-700 focus-visible:ring-2 ring-offset-2 ring-amber-700 group"
                 >
                   <IoReloadSharp />
                 </Button>
