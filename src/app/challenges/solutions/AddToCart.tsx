@@ -40,7 +40,7 @@ const PRODUCT = {
   ],
 };
 
-function Challenge2() {
+export function AddToCart() {
   const [selectedImageIndex, setSelectedImageIndex] = React.useState(0);
   const [selectedSize, setSelectedSize] = React.useState("S");
 
@@ -147,5 +147,3 @@ function Challenge2() {
     </motion.main>
   );
 }
-
-export default Challenge2;

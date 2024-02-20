@@ -14,7 +14,7 @@ function Challenges({
 }>) {
   return (
     <div
-      className={`w-screen min-h-screen bg-gradient-to-b from-orange-300 to-orange-100 flex justify-center`}
+      className={`min-w-screen min-h-screen bg-gradient-to-b from-orange-300 to-orange-100 flex justify-center`}
     >
       <div className="w-full px-6 sm:px-10 sm:max-w-screen-2xl flex flex-col">
         <Header />

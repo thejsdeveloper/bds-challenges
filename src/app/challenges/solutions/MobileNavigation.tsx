@@ -72,7 +72,7 @@ const FOOTER_OPTIONS = [
   },
 ];
 
-export default function Challenge3() {
+export function MobileNavigation() {
   return (
     <motion.section
       variants={pageVisitVariant}

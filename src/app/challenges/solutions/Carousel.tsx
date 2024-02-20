@@ -38,7 +38,7 @@ const IMAGES: Image[] = [
     alt: "Image 6",
   },
 ];
-function Challenge6() {
+export function CarouselPage() {
   return (
     <motion.section
       // variants={pageVisitVariant}
@@ -52,5 +52,3 @@ function Challenge6() {
     </motion.section>
   );
 }
-
-export default Challenge6;

@@ -4,7 +4,7 @@ import { Pulse } from "@/app/components/Pulse/Pulse";
 import { motion } from "framer-motion";
 import { ComponentProps } from "react";
 import { pageVisitVariant } from "../animate";
-function Challenge4() {
+export function ContactUs() {
   return (
     <motion.div
       variants={pageVisitVariant}
@@ -99,8 +99,6 @@ function Challenge4() {
     </motion.div>
   );
 }
-
-export default Challenge4;
 
 const TextInput = (props: ComponentProps<"input">) => {
   return <input {...props} className="border p-1 rounded-xl" />;

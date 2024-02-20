@@ -9,7 +9,7 @@ import { BsFillPersonVcardFill } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { TiEye } from "react-icons/ti";
 import { pageVisitVariant } from "../animate";
-function Challenge7() {
+export function CreateAccount() {
   return (
     <motion.section
       variants={pageVisitVariant}
@@ -81,8 +81,6 @@ function Challenge7() {
     </motion.section>
   );
 }
-
-export default Challenge7;
 
 type FormInputProps = Partial<ElementType<HTMLInputElement>> & {
   label: string;

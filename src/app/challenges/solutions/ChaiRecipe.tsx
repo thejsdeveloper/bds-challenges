@@ -12,7 +12,7 @@ import {
 import { pageVisitVariant } from "../animate";
 
 const SECONDARY_COLOR = "#FFBB65";
-function Challenge5() {
+export function ChaiRecipe() {
   return (
     <motion.section
       variants={pageVisitVariant}
@@ -22,7 +22,7 @@ function Challenge5() {
     >
       {/**image */}
       <div className="relative">
-        <h1 className="hidden md:block z-50 absolute md:top-[55%] lg:top-[65%] left-0 | py-6 px-3 | text-white text-xl font-semibold bg-chai-dark/90 uppercase">
+        <h1 className="hidden md:block z-50 absolute bottom-10 left-0 | py-6 px-3 | text-white text-xl font-semibold bg-chai-dark/90 uppercase">
           Ginger Cardamom Chai (Tea)
         </h1>
         <Image
@@ -56,7 +56,7 @@ function Challenge5() {
           </h1>
         </div>
         {/** Recipe Details */}
-        <div className="mt-10 md:mt-56 lg:mt-44 md:overflow-y-scroll md:h-[70%]">
+        <div className="mt-10 md:mt-56 lg:mt-44 ">
           {/** Recipe time */}
           <div className="flex gap-2 md:gap-4 | text-[12px] font-bold   text-black/70">
             <div className="flex items-center gap-2">
@@ -167,5 +167,3 @@ function Challenge5() {
     </motion.section>
   );
 }
-
-export default Challenge5;

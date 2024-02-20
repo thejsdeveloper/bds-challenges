@@ -8,7 +8,7 @@ import { twMerge } from "tailwind-merge";
 import { pageVisitVariant } from "../animate";
 
 const COLORS = ["bg-rose-200", "bg-lime-200", "bg-sky-200", "bg-purple-200"];
-function Challenge8() {
+export function MusicEvent() {
   return (
     <motion.section
       variants={pageVisitVariant}
@@ -33,8 +33,6 @@ function Challenge8() {
     </motion.section>
   );
 }
-
-export default Challenge8;
 
 const EventItem = ({
   eventItem,
