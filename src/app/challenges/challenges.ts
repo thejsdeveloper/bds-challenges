@@ -7,6 +7,7 @@ import {
   MusicEvent,
   ProfileCard,
   ChaiRecipe,
+  PasswordGenerator,
 } from "./solutions";
 
 export const challenges = [
@@ -18,4 +19,5 @@ export const challenges = [
   { day: 6, title: "Image Carousel", solution: CarouselPage },
   { day: 7, title: "Create Account", solution: CreateAccount },
   { day: 8, title: "Music events", solution: MusicEvent },
+  { day: 9, title: "Password Generator", solution: PasswordGenerator },
 ];

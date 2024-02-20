@@ -6,3 +6,4 @@ export * from "./CreateAccount";
 export * from "./MobileNavigation";
 export * from "./MusicEvent";
 export * from "./ProfileCard";
+export * from "./PasswordGenerator";
