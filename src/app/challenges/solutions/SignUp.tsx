@@ -30,7 +30,7 @@ export const SignUp = () => {
       animate="animate"
       className="flex-1 flex justify-center items-center | p-10  mb-4  |  bg-purple-50 | md:rounded-lg overflow-hidden"
     >
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-col sm:flex-row gap-10">
         <SignUpFormContainer>
           <SignUpWithGoogle aria-label="Sign up with Gmail" />
           <SingUpButton aria-label="Sign up with email">
