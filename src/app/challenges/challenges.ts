@@ -9,6 +9,7 @@ import {
   ChaiRecipe,
   PasswordGenerator,
 } from "./solutions";
+import { SignUp } from "./solutions/SignUp";
 
 export const challenges = [
   { day: 1, title: "Profile Card", solution: ProfileCard },
@@ -20,4 +21,5 @@ export const challenges = [
   { day: 7, title: "Create Account", solution: CreateAccount },
   { day: 8, title: "Music events", solution: MusicEvent },
   { day: 9, title: "Password Generator", solution: PasswordGenerator },
+  { day: 10, title: "Sign Up Page", solution: SignUp },
 ];
