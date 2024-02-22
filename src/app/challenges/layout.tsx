@@ -16,7 +16,7 @@ function Challenges({
     <div
       className={`min-w-screen min-h-screen bg-gradient-to-b from-orange-300 to-orange-100 flex justify-center`}
     >
-      <div className="container flex flex-col">
+      <div className="container flex flex-col px-2">
         <Header />
         {children}
       </div>

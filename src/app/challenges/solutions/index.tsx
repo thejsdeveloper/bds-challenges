@@ -7,3 +7,5 @@ export * from "./MobileNavigation";
 export * from "./MusicEvent";
 export * from "./ProfileCard";
 export * from "./PasswordGenerator";
+export * from "./HotelBooking";
+export * from "./SignUp";

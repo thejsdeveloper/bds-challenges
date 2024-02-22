@@ -1,24 +1,22 @@
 "use client";
 import { motion } from "framer-motion";
-import { pageVisitVariant } from "../animate";
-import React, { PropsWithChildren, useId } from "react";
+import React, { PropsWithChildren } from "react";
 import {
   Button,
   ButtonProps,
   Form,
-  Group,
   Input,
-  InputProps,
   Label,
   TextField,
   TextFieldProps,
 } from "react-aria-components";
-import { twMerge } from "tailwind-merge";
-import { FcGoogle } from "react-icons/fc";
-import { CiMail } from "react-icons/ci";
-import { IoEyeOutline } from "react-icons/io5";
 import { IconType } from "react-icons";
+import { CiMail } from "react-icons/ci";
+import { FcGoogle } from "react-icons/fc";
+import { IoEyeOutline } from "react-icons/io5";
 import { RiEyeCloseLine } from "react-icons/ri";
+import { twMerge } from "tailwind-merge";
+import { pageVisitVariant } from "../animate";
 
 export const SignUp = () => {
   const [showPassword, setShowPassword] = React.useState(false);

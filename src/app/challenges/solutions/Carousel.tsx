@@ -1,7 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 
-import Carousel from "@/app/components/Carousel/Carousel";
+import Carousel, {
+  ImagePreviewStrip,
+  ImageSlider,
+} from "@/app/components/Carousel/Carousel";
 import { CarouselProvider } from "@/app/components/Carousel/CarouselProvider";
 
 import image1 from "#/assets/challenge/carousel/image1.jpeg";
@@ -47,7 +50,14 @@ export function CarouselPage() {
       className="my-4 md:rounded-lg flex-1 bg-black"
     >
       <CarouselProvider images={IMAGES}>
-        <Carousel />
+        <Carousel>
+          <div className="flex justify-center items-center flex-1 py-10">
+            <ImageSlider />
+          </div>
+          <div className={`grid grid-flow-col gap-2 h-[20%] py-3  px-6`}>
+            <ImagePreviewStrip />
+          </div>
+        </Carousel>
       </CarouselProvider>
     </motion.section>
   );

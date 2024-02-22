@@ -5,6 +5,7 @@ import Image from "next/image";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useCarousel } from "./CarouselProvider";
 import { getPreviewVariants, sliderVariants, variantsKeys } from "./anim";
+import { PropsWithChildren } from "react";
 
 const SliderControl = ({
   children,
@@ -20,14 +21,20 @@ const SliderControl = ({
   );
 };
 
-const ImageSlider = () => {
+export const ImageSlider = ({
+  showControl = true,
+}: {
+  showControl?: boolean;
+}) => {
   const { currentImage, goToNext, goToPrevious, direction } = useCarousel();
 
   return (
     <AnimatePresence initial={false} custom={direction}>
-      <SliderControl onClick={goToPrevious}>
-        <BsArrowLeft />
-      </SliderControl>
+      {showControl && (
+        <SliderControl onClick={goToPrevious}>
+          <BsArrowLeft />
+        </SliderControl>
+      )}
       <div className="h-full w-full relative overflow-hidden">
         <motion.div
           variants={sliderVariants}
@@ -45,14 +52,16 @@ const ImageSlider = () => {
           />
         </motion.div>
       </div>
-      <SliderControl onClick={goToNext}>
-        <BsArrowRight />
-      </SliderControl>
+      {showControl && (
+        <SliderControl onClick={goToNext}>
+          <BsArrowRight />
+        </SliderControl>
+      )}
     </AnimatePresence>
   );
 };
 
-const ImagePreviewStrip = () => {
+export const ImagePreviewStrip = () => {
   const { images, currentIndex, setCurrentImageIndex } = useCarousel();
   return (
     <AnimatePresence initial={false}>
@@ -77,17 +86,8 @@ const ImagePreviewStrip = () => {
   );
 };
 
-function Carousel() {
-  return (
-    <div className="w-full h-full flex flex-col">
-      <div className="flex justify-center items-center flex-1 py-10">
-        <ImageSlider />
-      </div>
-      <div className={`grid grid-flow-col gap-2 h-[20%] py-3  px-6`}>
-        <ImagePreviewStrip />
-      </div>
-    </div>
-  );
+function Carousel({ children }: PropsWithChildren) {
+  return <div className="w-full h-full flex flex-col">{children}</div>;
 }
 
 export default Carousel;
