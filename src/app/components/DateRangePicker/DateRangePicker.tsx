@@ -30,11 +30,8 @@ import { twMerge } from "tailwind-merge";
 interface DateRangePickerProps<T extends DateValue>
   extends ReactAriaDateRangePickerProps<T> {
   label?: string;
-  showStart?: boolean;
-  showEnd?: boolean;
   errorMessage?: string | ((validation: ValidationResult) => string);
 }
-// TODO: type the show start and end better
 export const DateRangePicker = <T extends DateValue>({
   label,
   errorMessage,
@@ -75,7 +72,7 @@ export const DateRangePicker = <T extends DateValue>({
         </Button>
       </Group>
       <FieldError>{errorMessage}</FieldError>
-      <Popover>
+      <Popover placement="bottom right">
         <Dialog className="p-6 text-gray-600">
           <RangeCalendar>
             <header className="flex items-center justify-between gap-2 pb-4 w-full">
@@ -104,7 +101,6 @@ export const DateRangePicker = <T extends DateValue>({
                       isSelectionEnd,
                       isSelected,
                     }) => {
-                      // TODO: Need to figure out why there is gap between cells
                       return twMerge(
                         `flex items-center justify-center 
                           w-9 h-9 outline-none cursor-default 
