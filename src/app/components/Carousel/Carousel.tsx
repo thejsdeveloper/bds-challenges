@@ -7,6 +7,8 @@ import { useCarousel } from "./CarouselProvider";
 import { getPreviewVariants, sliderVariants, variantsKeys } from "./anim";
 import { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
+import { generateRange } from "@/app/utils/range";
+import { Button, Group } from "react-aria-components";
 
 export const SliderControl = ({
   children,
@@ -24,6 +26,31 @@ export const SliderControl = ({
     >
       {children}
     </button>
+  );
+};
+
+export const CarouselDotNav = ({ size }: { size: number }) => {
+  const { images, currentIndex, setCurrentImageIndex } = useCarousel();
+  const dots = generateRange(1, images.length);
+
+  return (
+    <>
+      {dots.map((_, i) => {
+        const selected = i === currentIndex;
+        return (
+          <Button
+            onPress={() => setCurrentImageIndex(i)}
+            key={i}
+            className="rounded-full bg-white z-50 border border-white outline-none focus:scale-150 focus:bg-slate-500 "
+            style={{
+              height: `${size}px`,
+              width: `${size}px`,
+              backgroundColor: selected ? "white" : "transparent",
+            }}
+          />
+        );
+      })}
+    </>
   );
 };
 

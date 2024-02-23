@@ -17,6 +17,11 @@ const config: Config = {
           DEFAULT: "#FFA41B",
           dark: "#D46515",
         },
+        tandoor: {
+          light: "#F1D043",
+          DEFAULT: "#E9692C",
+          dark: "#D44F22",
+        },
       },
       backgroundImage: {
         wave: "url('/assets/curve.svg')",
