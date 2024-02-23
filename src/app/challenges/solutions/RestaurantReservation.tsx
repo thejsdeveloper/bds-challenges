@@ -56,7 +56,7 @@ export const RestaurantReservation = () => {
                 Kashmiri gate
               </h2>
               <div className="flex items-center gap-2">
-                <Rating rating={4} size={24} />
+                <Rating rating={4} size={24} className="fill-tandoor" />
                 <p>(231 reviews)</p>
                 <button
                   className="ml-auto outline-none rounded-full focus:ring-1 ring-tandoor p-1 "
@@ -84,10 +84,12 @@ export const RestaurantReservation = () => {
           </div>
           <button
             className="mt-auto py-4 
+            text-white text-center font-semibold text-lg outline-none
+            transition ease-in-out duration-300
             bg-gradient-to-r from-tandoor-light via-tandoor  to-tandoor-light 
-             text-white text-center font-semibold text-lg outline-none
-            focus:from-tandoor focus:via-tandoor  focus:to-tandoor 
-            focus:text-lg focus:text-black
+            hover:bg-gradient-to-t hover:via-10%  hover:text-black
+            focus:bg-gradient-to-t focus:via-10% 
+            focus:text-lg focus:text-black 
           "
           >
             Make a reservation
