@@ -6,35 +6,36 @@ import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useCarousel } from "./CarouselProvider";
 import { getPreviewVariants, sliderVariants, variantsKeys } from "./anim";
 import { PropsWithChildren } from "react";
+import { twMerge } from "tailwind-merge";
 
-const SliderControl = ({
+export const SliderControl = ({
   children,
   onClick,
+  className,
 }: {
   children: React.ReactNode;
   onClick: () => void;
+  className?: string;
 }) => {
   return (
-    <button onClick={onClick} className="p-6  | text-white text-2xl">
+    <button
+      onClick={onClick}
+      className={twMerge("p-6  | text-white text-2xl", className)}
+    >
       {children}
     </button>
   );
 };
 
 export const ImageSlider = ({
-  showControl = true,
-}: {
+  children,
+}: PropsWithChildren<{
   showControl?: boolean;
-}) => {
-  const { currentImage, goToNext, goToPrevious, direction } = useCarousel();
+}>) => {
+  const { currentImage, direction } = useCarousel();
 
   return (
     <AnimatePresence initial={false} custom={direction}>
-      {showControl && (
-        <SliderControl onClick={goToPrevious}>
-          <BsArrowLeft />
-        </SliderControl>
-      )}
       <div className="h-full w-full relative overflow-hidden">
         <motion.div
           variants={sliderVariants}
@@ -51,12 +52,8 @@ export const ImageSlider = ({
             priority
           />
         </motion.div>
+        {children}
       </div>
-      {showControl && (
-        <SliderControl onClick={goToNext}>
-          <BsArrowRight />
-        </SliderControl>
-      )}
     </AnimatePresence>
   );
 };

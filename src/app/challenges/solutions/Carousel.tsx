@@ -14,6 +14,8 @@ import image4 from "#/assets/challenge/carousel/image4.jpeg";
 import image5 from "#/assets/challenge/carousel/image5.jpeg";
 import image6 from "#/assets/challenge/carousel/image6.jpeg";
 import { Image } from "@/app/components/Carousel/types";
+import { NatureCarousel } from "./NatureCarousel";
+import { pageVisitVariant } from "../animate";
 
 const IMAGES: Image[] = [
   {
@@ -44,20 +46,13 @@ const IMAGES: Image[] = [
 export function CarouselPage() {
   return (
     <motion.section
-      // variants={pageVisitVariant}
+      variants={pageVisitVariant}
       initial="initial"
       animate="animate"
       className="my-4 md:rounded-lg flex-1 bg-black"
     >
       <CarouselProvider images={IMAGES}>
-        <Carousel>
-          <div className="flex justify-center items-center flex-1 py-10">
-            <ImageSlider />
-          </div>
-          <div className={`grid grid-flow-col gap-2 h-[20%] py-3  px-6`}>
-            <ImagePreviewStrip />
-          </div>
-        </Carousel>
+        <NatureCarousel />
       </CarouselProvider>
     </motion.section>
   );
