@@ -18,8 +18,12 @@ export const TaskBoard = () => {
       <h1 className="text-3xl font-bold tracking-wider">Boards</h1>
       <BoardContent>
         <Column>
-          <Column.Header>
+          <Column.Header className="flex items-center gap-2">
             <Column.Title>To do</Column.Title>
+
+            <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
+              +
+            </button>
           </Column.Header>
           <Column.Content>
             {TODO.map((todoTasks) => (
@@ -29,8 +33,11 @@ export const TaskBoard = () => {
         </Column>
         {/* In Progress COLUMN */}
         <Column>
-          <Column.Header>
+          <Column.Header className="flex items-center gap-2">
             <Column.Title>In Progress</Column.Title>
+            <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
+              +
+            </button>
           </Column.Header>
           <Column.Content>
             {IN_PROGRESS.map((task) => (
@@ -40,8 +47,11 @@ export const TaskBoard = () => {
         </Column>
         {/* Under Review COLUMN */}
         <Column>
-          <Column.Header>
+          <Column.Header className="flex items-center gap-2">
             <Column.Title>Under Review</Column.Title>
+            <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
+              +
+            </button>
           </Column.Header>
           <Column.Content>
             {UNDER_REVIEW.map((task) => (
@@ -51,8 +61,11 @@ export const TaskBoard = () => {
         </Column>
         {/* Done Review COLUMN */}
         <Column>
-          <Column.Header>
+          <Column.Header className="flex items-center gap-2">
             <Column.Title>Done</Column.Title>
+            <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
+              +
+            </button>
           </Column.Header>
           {DONE.map((task) => (
             <TaskCard key={task.id} task={task} />
@@ -65,7 +78,9 @@ export const TaskBoard = () => {
 
 const BoardContent = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex w-full justify-between gap-8 mt-8">{children}</div>
+    <div className="flex flex-col lg:flex-row w-full justify-between gap-8 mt-8">
+      {children}
+    </div>
   );
 };
 
@@ -89,7 +104,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
           {severity === "medium" && <Badge color="info" text="Medium" />}
           {severity === "low" && <Badge color="secondary" text="Low" />}
         </div>
-        <p>{formatDate(date)}</p>
+        <p className="text-gray-500">{formatDate(date)}</p>
       </Card.Header>
       <Card.Body className="flex flex-col gap-2">
         {imageUrl && (

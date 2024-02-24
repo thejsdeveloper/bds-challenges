@@ -56,7 +56,7 @@ export const TASKS: Task[] = [
     description: `Plan and execute a social media campaign for the upcoming product launch in February, including creating posts and scheduling updates.`,
     status: "Done",
     imageUrl: "/assets/challenge/pattern/pattern1.jpeg",
-    assignedUsers: [USERS[0], USERS[4]],
+    assignedUsers: [USERS[0], USERS[3]],
     severity: "low",
   },
   {
