@@ -1,4 +1,4 @@
-import { TASKS } from "@/app/api/challenges/TaskBoard/data";
+import { TASKS } from "../../api/challenges/TaskBoard/data";
 import { Task } from "@/app/api/challenges/TaskBoard/types/Task";
 import { AvatarGroup } from "@/app/components/AvatarGroup/AvatarGroup";
 import { Badge } from "@/app/components/Badge/Badge";
