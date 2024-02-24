@@ -37,7 +37,7 @@ export const TASKS: Task[] = [
       "Revise the content and layout of the homepage to highlight new features and improve user engagement",
     status: "In progress",
     imageUrl: "/assets/challenge/pattern/pattern2.jpeg",
-    severity: "high",
+    severity: "low",
     assignedUsers: [USERS[0], USERS[3]],
   },
   {
