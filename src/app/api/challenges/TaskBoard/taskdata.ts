@@ -1,7 +1,7 @@
 import { Task } from "./types/Task";
 import { User } from "./types/User";
 
-export const USERS: User[] = [
+const USERS: User[] = [
   {
     id: "1",
     name: "John Doe",

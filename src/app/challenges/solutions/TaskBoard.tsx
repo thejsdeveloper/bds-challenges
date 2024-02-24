@@ -1,4 +1,4 @@
-import { TASKS } from "../../api/challenges/TaskBoard/data";
+import { TASKS } from "@/app/api/challenges/TaskBoard/taskdata";
 import { Task } from "@/app/api/challenges/TaskBoard/types/Task";
 import { AvatarGroup } from "@/app/components/AvatarGroup/AvatarGroup";
 import { Badge } from "@/app/components/Badge/Badge";
@@ -7,12 +7,12 @@ import Column from "@/app/components/Column/Column";
 import { formatDate } from "@/app/utils/dateFormat";
 import React from "react";
 
-export const TaskBoard = () => {
-  const TODO = TASKS.filter((task) => task.status === "To Do");
-  const IN_PROGRESS = TASKS.filter((task) => task.status === "In progress");
-  const UNDER_REVIEW = TASKS.filter((task) => task.status === "Under Review");
-  const DONE = TASKS.filter((task) => task.status === "Done");
+const TODO = TASKS.filter((task) => task.status === "To Do");
+const IN_PROGRESS = TASKS.filter((task) => task.status === "In progress");
+const UNDER_REVIEW = TASKS.filter((task) => task.status === "Under Review");
+const DONE = TASKS.filter((task) => task.status === "Done");
 
+export const TaskBoard = () => {
   return (
     <div className="flex-1 | rounded-xl | mb-6">
       <h1 className="text-3xl font-bold tracking-wider">Boards</h1>
