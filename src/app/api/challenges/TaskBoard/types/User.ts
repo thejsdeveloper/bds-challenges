@@ -3,5 +3,4 @@ export type User = {
   name: string;
   avatar: string;
   email: string;
-  // Add other basic info as needed
 };

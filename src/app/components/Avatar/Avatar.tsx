@@ -1,11 +1,16 @@
 import Image, { ImageProps } from "next/image";
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
-type Sizes = "small" | "medium" | "large";
+export type Sizes = "small" | "medium" | "large";
 
-type AvatarProps = { size: Sizes } & ImageProps;
+export type AvatarProps = { size: Sizes } & ImageProps;
 
-export const Avatar = ({ size, ...props }: AvatarProps) => {
+export const Avatar = ({
+  size,
+  className: imageClassName,
+  ...props
+}: AvatarProps) => {
   let className = "rounded-full";
 
   switch (size) {
@@ -23,8 +28,15 @@ export const Avatar = ({ size, ...props }: AvatarProps) => {
   }
 
   return (
-    <div className={className}>
-      <Image {...props} />
+    <div className={twMerge("relative overflow-hidden", className)}>
+      <Image
+        className={twMerge(
+          "object-contain ring-2 ring-offset-2 ring-black shadow-md",
+          imageClassName
+        )}
+        {...props}
+        fill
+      />
     </div>
   );
 };
