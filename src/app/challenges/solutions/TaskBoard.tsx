@@ -20,10 +20,7 @@ export const TaskBoard = () => {
         <Column>
           <Column.Header className="flex items-center gap-2   rounded-lg p-2">
             <Column.Title>To do</Column.Title>
-
-            <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
-              +
-            </button>
+            <AddButton />
           </Column.Header>
           <Column.Content>
             {TODO.map((todoTasks) => (
@@ -35,9 +32,7 @@ export const TaskBoard = () => {
         <Column>
           <Column.Header className="flex items-center gap-2   rounded-lg p-2">
             <Column.Title>In Progress</Column.Title>
-            <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
-              +
-            </button>
+            <AddButton />
           </Column.Header>
           <Column.Content>
             {IN_PROGRESS.map((task) => (
@@ -49,9 +44,7 @@ export const TaskBoard = () => {
         <Column>
           <Column.Header className="flex items-center gap-2   rounded-lg p-2">
             <Column.Title>Under Review</Column.Title>
-            <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
-              +
-            </button>
+            <AddButton />
           </Column.Header>
           <Column.Content>
             {UNDER_REVIEW.map((task) => (
@@ -63,9 +56,7 @@ export const TaskBoard = () => {
         <Column>
           <Column.Header className="flex items-center gap-2   rounded-lg p-2">
             <Column.Title>Done</Column.Title>
-            <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
-              +
-            </button>
+            <AddButton />
           </Column.Header>
           {DONE.map((task) => (
             <TaskCard key={task.id} task={task} />
@@ -76,6 +67,11 @@ export const TaskBoard = () => {
   );
 };
 
+const AddButton = () => (
+  <button className="w-6 h-6 p-2 flex justify-center items-center rounded-full text-gray-700 font-bold outline-none hover:bg-white hover:scale-110 focus:ring-1 ring-amber-600 transition-all">
+    +
+  </button>
+);
 const BoardContent = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full justify-between gap-8 mt-8">
