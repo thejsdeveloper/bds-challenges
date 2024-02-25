@@ -11,3 +11,4 @@ export * from "./HotelBooking";
 export * from "./SignUp";
 export * from "./RestaurantReservation";
 export * from "./TaskBoard";
+export * from "./ShoppingList";
