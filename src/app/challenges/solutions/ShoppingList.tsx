@@ -24,10 +24,10 @@ export const ShoppingList = () => {
     <div className="flex-1 flex justify-center items-center  | rounded-xl | mb-6 relative overflow-clip">
       <Backdrop />
       <div className="grid grid-col-1 lg:grid-cols-3 gap-8 p-6 w-full max-w-4xl">
-        <div className="col-span-2">
+        <div className="lg:col-span-2">
           <ProductList products={products} />
         </div>
-        <div className="col-span-1 flex flex-col gap-6">
+        <div className="lg:col-span-1 flex flex-col gap-6">
           <OrderSummary summery={summary} />
           <PromoCode />
         </div>
@@ -40,7 +40,7 @@ const PromoCode = () => {
   return (
     <Container>
       <div className="flex flex-col gap-4">
-        <h1>Promo Code</h1>
+        <h1 className="text-xl font-bold">Promo Code</h1>
         <Input
           className="outline-none ring-1 ring-black w-full rounded-md p-2 focus:ring-2 ring-offset-2"
           placeholder="Enter promo code"
