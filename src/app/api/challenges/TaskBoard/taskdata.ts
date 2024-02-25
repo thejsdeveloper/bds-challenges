@@ -5,25 +5,25 @@ const USERS: User[] = [
   {
     id: "1",
     name: "John Doe",
-    avatar: `https://i.pravatar.cc/200?u=${crypto.randomUUID()}`,
+    avatar: `https://i.pravatar.cc/200?u=5}`,
     email: "john@example.com",
   },
   {
     id: "2",
     name: "Jane Doe",
-    avatar: `https://i.pravatar.cc/200?u=${crypto.randomUUID()}`,
+    avatar: `https://i.pravatar.cc/200?u=2}`,
     email: "jane@example.com",
   },
   {
     id: "3",
     name: "Raghav",
-    avatar: `https://i.pravatar.cc/200?u=${crypto.randomUUID()}`,
+    avatar: `https://i.pravatar.cc/200?u=1}`,
     email: "jane@example.com",
   },
   {
     id: "4",
     name: "Sumit",
-    avatar: `https://i.pravatar.cc/200?u=${crypto.randomUUID()}`,
+    avatar: `https://i.pravatar.cc/200?u=3}`,
     email: "jane@example.com",
   },
 ];

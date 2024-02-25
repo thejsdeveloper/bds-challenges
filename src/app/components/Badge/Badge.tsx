@@ -9,13 +9,11 @@ export const Badge: FC<BadgeProps> = ({
   color = "primary",
   ...props
 }) => {
-  let className = "inline-block px-2 py-1 rounded-full";
-
   switch (color) {
     case "primary":
       return (
         <span
-          className="p-1 rounded-lg bg-pink-500 text-white text-sm"
+          className="py-1 px-2 rounded-lg bg-pink-500 text-white text-sm drop-shadow-md"
           {...props}
         >
           {text}
@@ -24,7 +22,7 @@ export const Badge: FC<BadgeProps> = ({
     case "secondary":
       return (
         <span
-          className="p-1 rounded-lg bg-green-500 text-white text-sm"
+          className="p-1 px-2 rounded-lg bg-green-500 text-white text-sm drop-shadow-md"
           {...props}
         >
           {text}
@@ -33,7 +31,7 @@ export const Badge: FC<BadgeProps> = ({
     case "info":
       return (
         <span
-          className="p-1 rounded-lg bg-sky-500 text-white text-sm"
+          className="p-1 px-2 rounded-lg bg-sky-500 text-white text-sm drop-shadow-md"
           {...props}
         >
           {text}

@@ -31,7 +31,7 @@ type CardFooterProps = HTMLAttributes<HTMLDivElement> & {
 const Card = ({ children, className, ...props }: CardProps) => (
   <div
     className={twMerge(
-      "bg-white rounded-xl p-4 drop-shadow-2xl  flex flex-col gap-2",
+      "bg-white rounded-xl p-4 drop-shadow-2xl  flex flex-col gap-6",
       className
     )}
     {...props}

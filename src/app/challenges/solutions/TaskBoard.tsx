@@ -18,7 +18,7 @@ export const TaskBoard = () => {
       <h1 className="text-3xl font-bold tracking-wider">Boards</h1>
       <BoardContent>
         <Column>
-          <Column.Header className="flex items-center gap-2 bg-gradient-to-r from-cyan-100 to-cyan-400  rounded-lg p-2">
+          <Column.Header className="flex items-center gap-2   rounded-lg p-2">
             <Column.Title>To do</Column.Title>
 
             <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
@@ -33,7 +33,7 @@ export const TaskBoard = () => {
         </Column>
         {/* In Progress COLUMN */}
         <Column>
-          <Column.Header className="flex items-center gap-2 bg-gradient-to-r from-green-100 to-green-400  rounded-lg p-2">
+          <Column.Header className="flex items-center gap-2   rounded-lg p-2">
             <Column.Title>In Progress</Column.Title>
             <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
               +
@@ -47,7 +47,7 @@ export const TaskBoard = () => {
         </Column>
         {/* Under Review COLUMN */}
         <Column>
-          <Column.Header className="flex items-center gap-2 bg-gradient-to-r from-violet-100 to-violet-400  rounded-lg p-2">
+          <Column.Header className="flex items-center gap-2   rounded-lg p-2">
             <Column.Title>Under Review</Column.Title>
             <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
               +
@@ -61,7 +61,7 @@ export const TaskBoard = () => {
         </Column>
         {/* Done Review COLUMN */}
         <Column>
-          <Column.Header className="flex items-center gap-2 bg-gradient-to-r from-rose-100 to-rose-400  rounded-lg p-2">
+          <Column.Header className="flex items-center gap-2   rounded-lg p-2">
             <Column.Title>Done</Column.Title>
             <button className="px-1 rounded-sm text-gray-700 font-bold outline-none focus:ring-1 ring-amber-600">
               +

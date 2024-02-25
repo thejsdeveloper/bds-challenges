@@ -36,6 +36,7 @@ export const Avatar = ({
         )}
         {...props}
         fill
+        sizes="100%"
       />
     </div>
   );
