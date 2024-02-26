@@ -2,7 +2,7 @@
 import { notifications } from "@/app/api/challenges/Notifications/data";
 import { Avatar } from "@/app/components/Avatar/Avatar";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { HTMLAttributes, useState } from "react";
 import {
   Button,
   Group,
@@ -13,8 +13,17 @@ import {
   MenuTrigger,
   Popover,
 } from "react-aria-components";
-import { RiNotificationLine } from "react-icons/ri";
+import { IconType } from "react-icons";
+import { BiSolidMessageSquareDots } from "react-icons/bi";
+import { BsLink45Deg } from "react-icons/bs";
+import { MdEmojiPeople, MdGroups2 } from "react-icons/md";
+import {
+  RiDownload2Fill,
+  RiDownloadLine,
+  RiNotificationLine,
+} from "react-icons/ri";
 import { MenuTriggerProps } from "react-stately";
+import { twMerge } from "tailwind-merge";
 
 const notification = notifications[0];
 
@@ -43,7 +52,13 @@ export const Notifications = () => {
 
         <NotificationMenuItem>
           <div className="flex items-center px-2 gap-4">
-            <Avatar size="medium" src={sender.avatar} alt={sender.name} />
+            <div className="relative">
+              <Avatar size="medium" src={sender.avatar} alt={sender.name} />
+              <Icon
+                Icon={() => <MdGroups2 fill="white" />}
+                className="bg-sky-400"
+              />
+            </div>
             <div className="flex flex-col">
               <p className="text-base text-gray-600">
                 <strong className="text-black">{sender.name} </strong>
@@ -55,7 +70,13 @@ export const Notifications = () => {
         </NotificationMenuItem>
         <NotificationMenuItem>
           <div className="flex items-center px-2 gap-4">
-            <Avatar size="medium" src={sender.avatar} alt={sender.name} />
+            <div className="relative">
+              <Avatar size="medium" src={sender.avatar} alt={sender.name} />
+              <Icon
+                Icon={() => <BiSolidMessageSquareDots fill="white" />}
+                className="bg-orange-400"
+              />
+            </div>
             <div className="flex flex-col">
               <p className="text-base text-gray-600">
                 <strong className="text-black">{sender.name} </strong>
@@ -67,7 +88,13 @@ export const Notifications = () => {
         </NotificationMenuItem>
         <NotificationMenuItem>
           <div className="flex items-center px-2 gap-4">
-            <Avatar size="medium" src={sender.avatar} alt={sender.name} />
+            <div className="relative">
+              <Avatar size="medium" src={sender.avatar} alt={sender.name} />
+              <Icon
+                Icon={() => <MdEmojiPeople fill="white" />}
+                className="bg-blue-500"
+              />
+            </div>
             <div className="flex flex-col">
               <p className="text-base text-gray-600">
                 <strong className="text-black">{sender.name} </strong>
@@ -105,7 +132,13 @@ export const Notifications = () => {
 
         <NotificationMenuItem>
           <div className="flex px-2 gap-4">
-            <Avatar size="medium" src={sender.avatar} alt={sender.name} />
+            <div className="relative">
+              <Avatar size="medium" src={sender.avatar} alt={sender.name} />
+              <Icon
+                Icon={() => <BsLink45Deg fill="white" />}
+                className="bg-green-500"
+              />
+            </div>
             <div className="flex flex-col flex-1">
               <p className="text-base text-gray-600">
                 <strong className="text-black">{sender.name} </strong>
@@ -145,11 +178,16 @@ export const Notifications = () => {
                       width={50}
                       height={50}
                     />
-                    <div className="flex flex-col justify-center">
-                      <h2 className="text-base text-violet-500 font-bold">
-                        Background Image
-                      </h2>
-                      <p className="text-sm text-gray-500">Zip- 1.4MB</p>
+                    <div className="flex-1 flex justify-between items-center">
+                      <div className="flex flex-col justify-center">
+                        <h2 className="text-base text-violet-500 font-bold">
+                          Background Image
+                        </h2>
+                        <p className="text-sm text-gray-500">Zip- 1.4MB</p>
+                      </div>
+                      <button aria-label="download attachment">
+                        <RiDownload2Fill />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -162,6 +200,23 @@ export const Notifications = () => {
   );
 };
 
+const Icon = ({
+  Icon,
+  className,
+  ...props
+}: { Icon: IconType } & HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div
+      className={twMerge(
+        "size-5 rounded-full bg-white absolute top-0 right-0 flex justify-center items-center p-1",
+        className
+      )}
+      {...props}
+    >
+      <Icon />
+    </div>
+  );
+};
 interface NotificationMenuProps<T>
   extends MenuProps<T>,
     Omit<MenuTriggerProps, "children"> {
@@ -179,7 +234,7 @@ const NotificationMenu = <T extends Object>({
     <MenuTrigger {...props}>
       <Button
         aria-label="Menu"
-        className="relative size-12 outline-none bg-white rounded-full p-2 flex justify-center items-center drop-shadow-lg"
+        className="relative size-12 outline-none focus:ring-1 ring-black ring-offset-2 bg-white rounded-full p-2 flex justify-center items-center drop-shadow-lg"
       >
         {haveUnreadNotifications && (
           <div className="size-2 bg-red-500 rounded-full absolute right-[25%] top-[30%]" />
