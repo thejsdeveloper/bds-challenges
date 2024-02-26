@@ -1,6 +1,7 @@
 "use client";
 import { Variants, motion } from "framer-motion";
 import Link from "next/link";
+import { Meteors } from "./components/Meteor/Meteors";
 
 const r1 = "47% 53% 61% 39% / 36% 49% 51% 64%";
 const r2 = "59% 41% 68% 32% / 52% 45% 55% 48% ";
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <main
       className="bg-black/90
-      h-screen w-screen flex flex-col justify-center items-center gap-8 font-designer"
+      h-screen w-screen flex flex-col justify-center items-center gap-8 font-designer relative"
     >
       <div>
         <h1 className="text-white text-6xl ">UI CHALLENGE</h1>
@@ -58,6 +59,7 @@ export default function Home() {
         <span className="glowing-text">C</span>
         <span className="glowing-text">K</span>
       </Link>
+      <Meteors />
     </main>
   );
 }
