@@ -14,6 +14,7 @@ import {
   TaskBoard,
   ShoppingList,
   Notifications,
+  FurFriends,
 } from "./solutions";
 
 export const challenges = [
@@ -32,4 +33,5 @@ export const challenges = [
   { day: 13, title: "Task Board", solution: TaskBoard },
   { day: 14, title: "Shopping List", solution: ShoppingList },
   { day: 15, title: "Notification", solution: Notifications },
+  { day: 16, title: "FurEver Friends", solution: FurFriends },
 ];
