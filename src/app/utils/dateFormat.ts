@@ -1,3 +1,5 @@
 export const formatDate = (date: Date) => {
-  return new Intl.DateTimeFormat().format(date);
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "short",
+  }).format(date);
 };

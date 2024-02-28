@@ -72,6 +72,11 @@ const config: Config = {
             transform: "translateY(-50%)",
           },
         },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
       },
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
@@ -81,6 +86,8 @@ const config: Config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },
