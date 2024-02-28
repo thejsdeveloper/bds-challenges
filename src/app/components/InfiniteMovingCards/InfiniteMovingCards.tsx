@@ -26,11 +26,12 @@ export const InfiniteMovingCards = ({
 
   const addAnimation = () => {
     if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(containerRef.current.children);
-
+      const scrollerContent = Array.from(scrollerRef.current.children);
       scrollerContent.forEach((item) => {
-        const duplicateItem = item.cloneNode(true);
-        if (scrollerRef.current) scrollerRef.current.appendChild(duplicateItem);
+        const duplicatedItem = item.cloneNode(true);
+        if (scrollerRef.current) {
+          scrollerRef.current.appendChild(duplicatedItem);
+        }
       });
 
       getDirection();
@@ -71,7 +72,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "relative flex items-center z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]",
+        "scroller relative flex items-center z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]",
         className
       )}
     >
