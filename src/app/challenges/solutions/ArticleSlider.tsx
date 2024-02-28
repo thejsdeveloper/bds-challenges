@@ -34,7 +34,7 @@ export const ArticleSlider = () => {
               />
               <div className="z-20 flex flex-col gap-4 p-6">
                 <h1 className="z-20 text-3xl font-designer">{article.title}</h1>
-                <p className="z-20 text-xl font-bold line-clamp-4">
+                <p className="z-20 text-xl font-medium">
                   {article.frontmatter}
                 </p>
                 <div className="z-20 flex items-center gap-2 mt-auto">
