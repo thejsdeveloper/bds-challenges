@@ -31,6 +31,7 @@ export const ArticleSlider = () => {
                 src={article.image}
                 alt={article.title}
                 className="w-1/2 h-full object-cover"
+                priority
               />
               <div className="z-20 flex flex-col gap-4 p-6">
                 <h1 className="z-20 text-3xl font-designer">{article.title}</h1>
@@ -43,6 +44,7 @@ export const ArticleSlider = () => {
                     src={article.user.avatar}
                     alt={article.user.name}
                     className="object-cover border-2 border-yellow-500 rounded-full"
+                    priority
                   />
                   <div className="z-20 space-y-1">
                     <p className="text-base text-blue-500 font-bold">
