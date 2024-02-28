@@ -14,3 +14,4 @@ export * from "./TaskBoard";
 export * from "./ShoppingList";
 export * from "./Notifications";
 export * from "./FurFriends";
+export * from "./ArticleSlider";
