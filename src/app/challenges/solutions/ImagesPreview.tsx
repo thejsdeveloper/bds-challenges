@@ -10,7 +10,16 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
-import { Button, Separator } from "react-aria-components";
+import {
+  Button,
+  Dialog,
+  DialogTrigger,
+  Heading,
+  Modal,
+  ModalOverlay,
+  ModalOverlayProps,
+  Separator,
+} from "react-aria-components";
 import { FaList } from "react-icons/fa6";
 import { LuGalleryThumbnails, LuLayoutGrid } from "react-icons/lu";
 
@@ -73,6 +82,7 @@ const GridLayout = ({
   images: Gallery[];
   className?: string;
 }) => {
+  const [selectedImage, setSelectedImage] = useState<Gallery | null>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -101,60 +111,129 @@ const GridLayout = ({
         <div className="grid gap-10">
           {firstPart.map((el, idx) => {
             return (
-              <motion.div
-                style={{
-                  y: translateFirst,
-                }}
+              <DialogTrigger
                 key={`grid-1-${idx}`}
+                onOpenChange={(isOpen) => {
+                  !isOpen && setSelectedImage(null);
+                }}
               >
-                <Image
-                  src={el.src}
-                  alt={el.alt}
-                  width="600"
-                  height="400"
-                  className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
-                />
-              </motion.div>
+                <Button className="outline-none">
+                  <motion.div
+                    layoutId={el.title}
+                    onClick={() => setSelectedImage(el)}
+                    style={{
+                      y: translateFirst,
+                    }}
+                    whileHover={{
+                      scale: 1.025,
+                      transition: {
+                        duration: 0.2,
+                      },
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                      transition: {
+                        duration: 0.2,
+                      },
+                    }}
+                  >
+                    <Image
+                      src={el.src}
+                      alt={el.alt}
+                      width="600"
+                      height="400"
+                      className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                    />
+                  </motion.div>
+                </Button>
+                <ImageModal image={selectedImage} />
+              </DialogTrigger>
             );
           })}
         </div>
         <div className="grid gap-10">
           {secondPart.map((el, idx) => {
             return (
-              <motion.div
-                style={{
-                  y: translateSecond,
-                }}
+              <DialogTrigger
                 key={`grid-1-${idx}`}
+                onOpenChange={(isOpen) => {
+                  !isOpen && setSelectedImage(null);
+                }}
               >
-                <Image
-                  src={el.src}
-                  alt={el.alt}
-                  width={400}
-                  height={400}
-                  className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
-                />
-              </motion.div>
+                <Button className="outline-none">
+                  <motion.div
+                    layoutId={el.title}
+                    onClick={() => setSelectedImage(el)}
+                    style={{
+                      y: translateSecond,
+                    }}
+                    whileHover={{
+                      scale: 1.025,
+                      transition: {
+                        duration: 0.2,
+                      },
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                      transition: {
+                        duration: 0.2,
+                      },
+                    }}
+                  >
+                    <Image
+                      src={el.src}
+                      alt={el.alt}
+                      width="600"
+                      height="400"
+                      className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                    />
+                  </motion.div>
+                </Button>
+                <ImageModal image={selectedImage} />
+              </DialogTrigger>
             );
           })}
         </div>
         <div className="grid gap-10">
           {thirdPart.map((el, idx) => {
             return (
-              <motion.div
-                style={{
-                  y: translateThird,
-                }}
+              <DialogTrigger
                 key={`grid-1-${idx}`}
+                onOpenChange={(isOpen) => {
+                  !isOpen && setSelectedImage(null);
+                }}
               >
-                <Image
-                  src={el.src}
-                  alt={el.alt}
-                  width={400}
-                  height={400}
-                  className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
-                />
-              </motion.div>
+                <Button className="outline-none">
+                  <motion.div
+                    layoutId={el.title}
+                    onClick={() => setSelectedImage(el)}
+                    style={{
+                      y: translateThird,
+                    }}
+                    whileHover={{
+                      scale: 1.025,
+                      transition: {
+                        duration: 0.2,
+                      },
+                    }}
+                    whileTap={{
+                      scale: 0.95,
+                      transition: {
+                        duration: 0.2,
+                      },
+                    }}
+                  >
+                    <Image
+                      src={el.src}
+                      alt={el.alt}
+                      width="600"
+                      height="400"
+                      className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
+                    />
+                  </motion.div>
+                </Button>
+                <ImageModal image={selectedImage} />
+              </DialogTrigger>
             );
           })}
         </div>
@@ -272,5 +351,34 @@ const CarouselLayout = ({
         })}
       </div>
     </div>
+  );
+};
+
+const ImageModal = ({
+  image,
+}: { image: Gallery | null } & ModalOverlayProps) => {
+  if (!image) {
+    return null;
+  }
+
+  return (
+    <ModalOverlay
+      className={`
+          fixed inset-0 z-10 overflow-y-auto bg-black/25 flex min-h-full items-center justify-center backdrop-blur
+        `}
+      isDismissable
+      isKeyboardDismissDisabled
+    >
+      <motion.div
+        layoutId={image.title}
+        className={`
+            w-full max-w-4xl h-[40rem] overflow-hidden rounded-2xl  align-middle shadow-xl relative
+          `}
+      >
+        <Modal>
+          <Image src={image.src} alt={image.alt} fill />
+        </Modal>
+      </motion.div>
+    </ModalOverlay>
   );
 };
