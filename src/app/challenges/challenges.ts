@@ -16,6 +16,7 @@ import {
   Notifications,
   FurFriends,
   ArticleSlider,
+  ImagesPreview,
 } from "./solutions";
 
 export const challenges = [
@@ -36,4 +37,5 @@ export const challenges = [
   { day: 15, title: "Notification", solution: Notifications },
   { day: 16, title: "FurEver Friends", solution: FurFriends },
   { day: 17, title: "Minion Thoughts", solution: ArticleSlider },
+  { day: 18, title: "Images Preview", solution: ImagesPreview },
 ];
