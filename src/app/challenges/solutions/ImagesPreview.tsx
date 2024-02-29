@@ -249,6 +249,8 @@ const ListLayout = ({
   images: Gallery[];
   className?: string;
 }) => {
+  const [selectedImage, setSelectedImage] = useState<Gallery | null>(null);
+
   return (
     <div
       className={cn(
@@ -263,17 +265,30 @@ const ListLayout = ({
               key={`grid-${idx}`}
               className={cn(
                 "flex gap-10 items-center py-5 px-10",
-
                 idx % 2 === 0 ? "bg-black" : "bg-stone-800 "
               )}
             >
-              <Image
-                src={el.src}
-                alt={el.alt}
-                width="200"
-                height="100"
-                className="h-28 object-cover  rounded-lg"
-              />
+              <DialogTrigger
+                onOpenChange={(isOpen) => {
+                  !isOpen && setSelectedImage(null);
+                }}
+              >
+                <Button
+                  className="outline-none"
+                  onPress={() => setSelectedImage(el)}
+                >
+                  <motion.div layoutId={el.title} key={`div-${idx}`}>
+                    <Image
+                      src={el.src}
+                      alt={el.alt}
+                      width="200"
+                      height="100"
+                      className="h-28 object-cover  rounded-lg"
+                    />
+                  </motion.div>
+                </Button>
+                <ImageModal image={selectedImage} />
+              </DialogTrigger>
               <h3 className="text-base font-medium text-white flex-1">
                 {el.title}
               </h3>
@@ -338,14 +353,16 @@ const CarouselLayout = ({
               )}
               onPress={() => setSelectedImageIndex(idx)}
             >
-              <Image
-                src={el.src}
-                alt={el.alt}
-                width="200"
-                height="100"
-                className="object-cover rounded-lg aspect-video"
-                priority
-              />
+              <motion.div layoutId={el.title} key={`div-${idx}`}>
+                <Image
+                  src={el.src}
+                  alt={el.alt}
+                  width="200"
+                  height="100"
+                  className="object-cover rounded-lg aspect-video"
+                  priority
+                />
+              </motion.div>
             </Button>
           );
         })}
