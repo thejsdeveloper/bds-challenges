@@ -2,7 +2,12 @@
 import { IMAGES } from "@/app/api/challenges/ImagesPreview/data";
 import { Gallery } from "@/app/api/challenges/ImagesPreview/types";
 import { cn } from "@/app/utils/cn";
-import { useScroll, useTransform, motion } from "framer-motion";
+import {
+  useScroll,
+  useTransform,
+  motion,
+  AnimatePresence,
+} from "framer-motion";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { Button, Separator } from "react-aria-components";
@@ -220,18 +225,29 @@ const CarouselLayout = ({
       )}
     >
       <div className="w-full flex-1 flex p-10">
-        <div className="flex-1 relative">
-          <Image
-            src={selectedImage.src}
-            alt={selectedImage.alt}
-            className=" object-cover rounded-lg transition-all"
-            sizes="100%"
-            fill
-            priority
-          />
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            className="flex-1 relative"
+            key={selectedImage ? selectedImage.title : "empty"}
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{
+              y: -10,
+              opacity: 0,
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <Image
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className=" object-cover rounded-lg transition-all"
+              sizes="100%"
+              fill
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
-      {/* */}
       <div className="overflow-x-auto flex shrink-0 gap-5 p-5 h-[10rem]">
         {images.map((el, idx) => {
           return (
