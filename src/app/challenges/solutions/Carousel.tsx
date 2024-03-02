@@ -16,6 +16,7 @@ import image6 from "#/assets/challenge/carousel/image6.jpeg";
 import { Image } from "@/app/components/Carousel/types";
 import { NatureCarousel } from "./NatureCarousel";
 import { pageVisitVariant } from "../animate";
+import { Transaction } from "@/app/api/challenges/CardWallet/types";
 
 const IMAGES: Image[] = [
   {

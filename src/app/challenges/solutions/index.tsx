@@ -17,3 +17,4 @@ export * from "./FurFriends";
 export * from "./ArticleSlider";
 export * from "./ImagesPreview";
 export * from "./PhotoUpload";
+export * from "./CardWallet";
