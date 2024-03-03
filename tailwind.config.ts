@@ -80,6 +80,7 @@ const config: Config = {
       },
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
+        "wiggle-2": "wiggle 1s ease-in-out ",
         "meteor-effect": "meteor 5s linear infinite",
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",

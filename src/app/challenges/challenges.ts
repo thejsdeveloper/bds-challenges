@@ -19,6 +19,7 @@ import {
   ImagesPreview,
   PhotoUpload,
   CardWallet,
+  PricingPlan,
 } from "./solutions";
 
 export const challenges = [
@@ -42,4 +43,5 @@ export const challenges = [
   { day: 18, title: "Images Preview", solution: ImagesPreview },
   { day: 19, title: "Photo Upload", solution: PhotoUpload },
   { day: 20, title: "Card Wallet", solution: CardWallet },
+  { day: 21, title: "Pricing Plan", solution: PricingPlan },
 ];
