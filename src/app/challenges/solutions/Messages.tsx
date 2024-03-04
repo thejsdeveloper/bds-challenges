@@ -63,7 +63,6 @@ const DetailsPage = ({
     <motion.div
       initial="initial"
       animate="animate"
-      exit="exit"
       variants={{
         initial: {
           opacity: 0,
@@ -303,7 +302,10 @@ const Users = ({ users }: { users: User[] }) => {
     <div className="flex gap-4 pl-6 flex-nowrap shrink-0 overflow-x-auto ">
       {users.map((user) => {
         return (
-          <div className="flex flex-col justify-center items-center gap-2 last-of-type:mr-6">
+          <div
+            className="flex flex-col justify-center items-center gap-2 last-of-type:mr-6"
+            key={user.id}
+          >
             <div className="relative">
               <Avatar
                 src={user.avatar}

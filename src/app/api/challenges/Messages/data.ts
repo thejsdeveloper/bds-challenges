@@ -9,22 +9,17 @@ function generateOnlineStatus() {
   return Math.random() < 0.5;
 }
 
-// Function to generate random name
-function generateName() {
-  const names = [
-    "Jane",
-    "Mary",
-    "James",
-    "Emma",
-    "Noah",
-    "Olivia",
-    "Liam",
-    "Sophia",
-    "Mason",
-  ];
-  return names[Math.floor(Math.random() * names.length)];
-}
-
+const names = [
+  "Jane",
+  "Mary",
+  "James",
+  "Emma",
+  "Noah",
+  "Olivia",
+  "Liam",
+  "Sophia",
+  "Mason",
+];
 // Function to generate random text
 function generateText() {
   const texts = [
@@ -49,15 +44,15 @@ const Avatars = Array.from(
 
 // Generate users
 const users: User[] = Array.from({ length: 9 }, (_, i) => ({
-  id: generateId(),
-  name: generateName(),
+  id: `${i}`,
+  name: names[i],
   avatar: Avatars[i],
   online: generateOnlineStatus(),
   conversations: [],
 }));
 
 users.push({
-  id: generateId(),
+  id: "100",
   name: "John",
   avatar: `https://i.pravatar.cc/200?u=john`,
   online: generateOnlineStatus(),
@@ -96,21 +91,6 @@ users.forEach((user) => {
   }
 
   john.conversations.push(conversation);
-
-  // const conversation: Conversation = {
-  //   id: generateId(),
-  //   userId: user.id,
-  //   messages: Array.from({ length: 5 }, () => ({
-  //     // Generate 5 messages per conversation
-  //     id: generateId(),
-  //     conversationId: john.id,
-  //     sender: john.name,
-  //     text: generateText(),
-  //     timestamp: generateDate(),
-  //   })),
-  // };
-
-  // john.conversations.push(conversation);
 });
 
 export const DATA = {
