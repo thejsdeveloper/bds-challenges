@@ -253,7 +253,7 @@ const ConversationList = <T extends Conversation>({
 
   return (
     <GridList
-      className="flex flex-col divide-y divide-gray-300 overflow-y-auto mt-6"
+      className="flex flex-col divide-y divide-gray-300 max-h-[70%] overflow-y-auto mt-6"
       aria-label="Conversation List"
       items={conversations}
       onAction={(key) => {

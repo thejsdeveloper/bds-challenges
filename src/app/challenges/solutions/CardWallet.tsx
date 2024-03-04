@@ -124,7 +124,7 @@ const TransactionList = ({
       }}
       className="grid gap-4 px-6 h-1/2"
     >
-      <div className="grid gap-4 overflow-y-auto mb-4 pr-2">
+      <div className="grid gap-4 overflow-y-auto pb-16 pr-2">
         {transactions.map((transaction) => (
           <motion.div
             variants={{
