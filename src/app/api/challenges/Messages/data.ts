@@ -12,7 +12,6 @@ function generateOnlineStatus() {
 // Function to generate random name
 function generateName() {
   const names = [
-    "John",
     "Jane",
     "Mary",
     "James",
@@ -49,13 +48,21 @@ const Avatars = Array.from(
 );
 
 // Generate users
-const users: User[] = Array.from({ length: 10 }, (_, i) => ({
+const users: User[] = Array.from({ length: 9 }, (_, i) => ({
   id: generateId(),
   name: generateName(),
   avatar: Avatars[i],
   online: generateOnlineStatus(),
   conversations: [],
 }));
+
+users.push({
+  id: generateId(),
+  name: "John",
+  avatar: `https://i.pravatar.cc/200?u=john`,
+  online: generateOnlineStatus(),
+  conversations: [],
+});
 
 const john = users.find((user) => user.name === "John");
 
