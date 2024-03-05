@@ -36,7 +36,7 @@ export const Homepage = () => {
   return (
     <div
       className={cn(
-        "flex-1 flex flex-col items-center gap-10 bg-teal-50/90 p-8 | rounded-xl | mb-6 relative overflow-clip",
+        "flex-1 flex flex-col items-center gap-4 md:gap-10 bg-teal-50/90 p-8 | rounded-xl | mb-6 relative overflow-clip",
         vareala.className
       )}
     >
@@ -108,8 +108,8 @@ export const Homepage = () => {
         </div>
       </header>
 
-      <div className="grid grid-clos-1 md:grid-cols-2 flex-1">
-        <div className="px-6  bg-gray-200 relative w-10/12 ml-auto rounded-md">
+      <div className="grid grid-clos-1 md:grid-cols-2 gap-4">
+        <div className="md:px-6 h-[200px] md:h-auto bg-gray-200 relative w-full md:w-10/12 ml-auto rounded-md">
           <Image
             src={plant1}
             alt="hero plant"
@@ -117,9 +117,8 @@ export const Homepage = () => {
             sizes="100%"
             className="rounded-md"
           />
-          <FaQuoteRight className="size-20 fill-emerald-900 z-100 absolute top-1/2 -left-[25%] -translate-y-1/3 " />
-
-          <div className="absolute z-50 top-1/2 -left-[20%]">
+          <FaQuoteRight className="hidden lg:block size-20 fill-emerald-900 z-100 absolute top-1/2 -left-[25%] -translate-y-1/3 " />
+          <div className="hidden lg:block md:absolute z-50 top-1/2 -left-[20%]">
             <Card
               author={{
                 name: "Debra D. Gilliam",
@@ -130,8 +129,8 @@ export const Homepage = () => {
             />
           </div>
         </div>
-        <div className="grid place-content-center px-10  w-9/12 space-y-6">
-          <h2 className="text-6xl text-emerald-700">
+        <div className="grid place-content-center px-2 md:px-10  md:w-9/12 space-y-6">
+          <h2 className="text-4xl md:text-6xl text-emerald-700">
             Make your home beautiful with plants
           </h2>
           <p className="text-base text-emerald-500">
