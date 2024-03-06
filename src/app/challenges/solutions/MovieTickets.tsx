@@ -10,8 +10,10 @@ import {
 } from "@/app/api/challenges/MovieTickets/data";
 import Image from "next/image";
 import { FaChevronLeft } from "react-icons/fa6";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const MovieTickets = () => {
+  const [showBookingScreen, setShowBookingScreen] = React.useState(false);
   return (
     <div
       className={cn(
@@ -19,19 +21,50 @@ export const MovieTickets = () => {
       )}
     >
       <MobileSkeleton className="gap-0">
-        {/* <MovieDetails movie={MOVIE} /> */}
-        <Booking movie={MOVIE} />
+        <AnimatePresence mode="sync" initial={false}>
+          {showBookingScreen && (
+            <Booking movie={MOVIE} onBack={() => setShowBookingScreen(false)} />
+          )}
+        </AnimatePresence>
+        <MovieDetails
+          movie={MOVIE}
+          onClick={() => setShowBookingScreen(true)}
+        />
       </MobileSkeleton>
     </div>
   );
 };
 
-const Booking = ({ movie }: { movie: Movie }) => {
+const Booking = ({ movie, onBack }: { movie: Movie; onBack: () => void }) => {
   const [selectedShow, setSelectedShow] = React.useState(movie.showTimes[0]);
   const [selectedTimeIdx, setSelectedTimeIdx] = React.useState(0);
 
   return (
-    <>
+    <motion.div
+      className="flex-1 flex flex-col z-50"
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={{
+        initial: {
+          opacity: 0,
+          x: 500,
+        },
+        animate: {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 0.2,
+          },
+        },
+        exit: {
+          x: 500,
+          transition: {
+            duration: 0.2,
+          },
+        },
+      }}
+    >
       <div className="flex flex-col h-2/3 bg-violet-600 p-4 text-white">
         <div className="flex items-center gap-6">
           <button
@@ -43,6 +76,7 @@ const Booking = ({ movie }: { movie: Movie }) => {
           transition-all
           "
             aria-label="Go back"
+            onClick={onBack}
           >
             <FaChevronLeft />
           </button>
@@ -114,7 +148,7 @@ const Booking = ({ movie }: { movie: Movie }) => {
           Pay
         </button>
       </div>
-    </>
+    </motion.div>
   );
 };
 
@@ -218,9 +252,15 @@ const Pill = ({
   );
 };
 
-const MovieDetails = ({ movie }: { movie: Movie }) => {
+const MovieDetails = ({
+  movie,
+  onClick,
+}: {
+  movie: Movie;
+  onClick: () => void;
+}) => {
   return (
-    <>
+    <motion.div className="flex-1 absolute inset-0 z-0">
       <div
         className="h-[55%] bg-top bg-cover"
         style={{
@@ -252,6 +292,8 @@ const MovieDetails = ({ movie }: { movie: Movie }) => {
           })}
         </div>
         <button
+          aria-label="Book movie ticket"
+          onClick={onClick}
           className="py-2
           absolute bottom-4 left-4 right-4
           bg-orange-500 rounded text-white
@@ -263,6 +305,6 @@ const MovieDetails = ({ movie }: { movie: Movie }) => {
           Buy Tickets
         </button>
       </div>
-    </>
+    </motion.div>
   );
 };
