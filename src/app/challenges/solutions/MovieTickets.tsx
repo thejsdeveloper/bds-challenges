@@ -41,7 +41,7 @@ const Booking = ({ movie, onBack }: { movie: Movie; onBack: () => void }) => {
 
   return (
     <motion.div
-      className="flex-1 flex flex-col z-50"
+      className="flex-1 flex flex-col z-50 bg-white"
       initial="initial"
       animate="animate"
       exit="exit"
