@@ -21,3 +21,4 @@ export * from "./CardWallet";
 export * from "./PricingPlan";
 export * from "./Messages";
 export * from "./Homepage";
+export * from "./MovieTickets";
