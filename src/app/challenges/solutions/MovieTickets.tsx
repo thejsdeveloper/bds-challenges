@@ -2,7 +2,12 @@
 import { MobileSkeleton } from "@/app/components/MobileSkeleton/MobileSkeleton";
 import { cn } from "@/app/utils/cn";
 import React from "react";
-import { Movie, MOVIE } from "@/app/api/challenges/MovieTickets/data";
+import {
+  Movie,
+  MOVIE,
+  SEAT_LAYOUT,
+  SeatLayout,
+} from "@/app/api/challenges/MovieTickets/data";
 import Image from "next/image";
 import { FaChevronLeft } from "react-icons/fa6";
 
@@ -27,7 +32,7 @@ const Booking = ({ movie }: { movie: Movie }) => {
 
   return (
     <>
-      <div className="h-2/3 bg-violet-600 p-4 text-white">
+      <div className="flex flex-col h-2/3 bg-violet-600 p-4 text-white">
         <div className="flex items-center gap-6">
           <button
             className="p-1 rounded-full outline-none
@@ -37,11 +42,34 @@ const Booking = ({ movie }: { movie: Movie }) => {
           hover:bg-white
           transition-all
           "
+            aria-label="Go back"
           >
             <FaChevronLeft />
-            <span className="sr-only">Go Back</span>
           </button>
           <h1 className="text-lg font-medium tracking-wider">Choose Seats</h1>
+        </div>
+
+        <div className="absolute top-20 left-0 right-0">
+          <Screen />
+        </div>
+        <div className="relative mt-auto grid gap-8 place-content-center">
+          <div className="relative">
+            <TheatreSeatLayout layout={SEAT_LAYOUT} />
+          </div>
+          <div className="flex justify-around mb-10 text-sm">
+            <div className="flex items-center gap-1">
+              <div className="size-3 rounded-sm bg-orange-500" /> Selected
+            </div>
+
+            <div className="flex items-center gap-1">
+              <div className="size-3 rounded-sm bg-gray-200" /> Reserved
+            </div>
+
+            <div className="flex items-center gap-1">
+              <div className="size-3  rounded-sm border border-gray-200" />{" "}
+              Selected
+            </div>
+          </div>
         </div>
       </div>
       <div className="h-1/3 -mt-8 rounded-t-3xl bg-white overflow-y-auto overflow-clip pt-4 pb-10 px-8 space-y-3">
@@ -90,7 +118,81 @@ const Booking = ({ movie }: { movie: Movie }) => {
   );
 };
 
-const SeatingPlan = ({}: { layout: string[] }) => {};
+const Screen = () => {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      preserveAspectRatio="none"
+      viewBox="0 0 1877 1341"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M259 195.613L414.341 128.472L590.147 68.2423L763.45 30.7222L956.149 9L1331.54 68.2423L1528.61 128.472L1623.71 162.043L1711.5 195.613L2042 1340.5L-113.5 1287L259 195.613Z"
+        fill="url(#paint0_linear_21_788)"
+      />
+      <path
+        d="M258.59 190.766C258.59 190.766 601.835 11.0258 935.066 10.9355C1268.3 10.8452 1708.64 190.372 1708.64 190.372"
+        stroke="white"
+        strokeWidth="20"
+        strokeLinecap="round"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_21_788"
+          x1="994"
+          y1="9"
+          x2="994"
+          y2="1290.61"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#9848D7" />
+          <stop offset="1" stopColor="#D9D9D9" stopOpacity="0.03" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+};
+
+const TheatreSeatLayout = ({ layout }: { layout: SeatLayout }) => {
+  const rows = layout.seats.length;
+  const cols = layout.seats[0].length;
+  const seats = layout.seats.flat();
+
+  const [selectedSeats, setSelectedSeats] = React.useState<string[]>([]);
+
+  return (
+    <div
+      className={cn(
+        `grid gap-3`,
+        cols && `grid-rows-${rows} grid-cols-${cols}`
+      )}
+    >
+      {seats.map((seat) => {
+        if (!seat) return <div></div>;
+        const selected = selectedSeats.includes(seat.id);
+        return (
+          <button
+            className={cn(
+              "outline-none size-6 ring-1 ring-white rounded-sm",
+              seat.status === "reserved" && "bg-gray-200 cursor-default",
+              selected && "bg-orange-500 ring-orange-500"
+            )}
+            onClick={() => {
+              if (seat.status === "reserved") return;
+              if (selected) {
+                setSelectedSeats(selectedSeats.filter((s) => s !== seat.id));
+              } else {
+                setSelectedSeats([...selectedSeats, seat.id]);
+              }
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 const Pill = ({
   text,

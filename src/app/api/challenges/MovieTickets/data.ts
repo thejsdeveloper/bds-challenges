@@ -117,7 +117,7 @@ export const SEAT_LAYOUT: SeatLayout = {
       { id: "D8", status: "available" },
     ],
     [
-      { id: "E1", status: "available" },
+      { id: "E1", status: "reserved" },
       { id: "E2", status: "available" },
       { id: "E3", status: "available" },
       { id: "E4", status: "available" },
@@ -128,11 +128,11 @@ export const SEAT_LAYOUT: SeatLayout = {
     ],
     [
       { id: "F1", status: "available" },
-      { id: "F2", status: "available" },
+      { id: "F2", status: "reserved" },
       { id: "F3", status: "available" },
       { id: "F4", status: "available" },
       { id: "F5", status: "available" },
-      { id: "F6", status: "available" },
+      { id: "F6", status: "reserved" },
       { id: "F7", status: "available" },
       { id: "F8", status: "available" },
     ],
