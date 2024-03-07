@@ -199,7 +199,7 @@ const TheatreSeatLayout = ({ layout }: { layout: SeatLayout }) => {
   return (
     <div
       className={cn(
-        `grid gap-3`,
+        `grid gap-3 grid-cols-8`,
         cols && `grid-rows-${rows} grid-cols-${cols}`
       )}
     >
