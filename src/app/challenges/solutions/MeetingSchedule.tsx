@@ -130,24 +130,11 @@ const MeetingForm = ({ onSubmit }: { onSubmit: () => void }) => {
   let [endTime, setEndTime] = React.useState(new Time(12, 45));
   const [title, setTitle] = React.useState("Meeting with Me");
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={{
-        exit: {
-          opacity: 0,
-          x: -500,
-          transition: {
-            duration: 0.4,
-          },
-        },
-      }}
-      className="w-full h-full flex flex-col"
-    >
+    <>
       <motion.p
         initial="initial"
         animate="animate"
+        exit="exit"
         variants={{
           initial: {
             opacity: 0,
@@ -159,6 +146,13 @@ const MeetingForm = ({ onSubmit }: { onSubmit: () => void }) => {
             transition: {
               duration: 0.5,
               ease: "easeIn",
+            },
+          },
+          exit: {
+            opacity: 0,
+            x: -100,
+            transition: {
+              duration: 0.4,
             },
           },
         }}
@@ -185,14 +179,20 @@ const MeetingForm = ({ onSubmit }: { onSubmit: () => void }) => {
           },
           exit: {
             opacity: 0,
-            y: 500,
+            y: -500,
+            transition: {
+              duration: 0.4,
+            },
           },
         }}
         className="w-full h-full rounded-t-3xl overflow-clip bg-white"
       >
         <Form
           className="flex-1 grid gap-4 w-full bg-white p-6"
-          onSubmit={onSubmit}
+          onSubmit={(e) => {
+            e.preventDefault();
+            onSubmit();
+          }}
         >
           <FormGroup
             placeholder="Enter the title"
@@ -236,7 +236,7 @@ const MeetingForm = ({ onSubmit }: { onSubmit: () => void }) => {
           </Button>
         </Form>
       </motion.div>
-    </motion.div>
+    </>
   );
 };
 
