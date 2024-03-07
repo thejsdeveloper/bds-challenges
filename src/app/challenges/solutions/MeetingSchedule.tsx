@@ -32,7 +32,7 @@ import { FaClock } from "react-icons/fa6";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { PiPlus } from "react-icons/pi";
 import { SlCalender } from "react-icons/sl";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { CgCheck } from "react-icons/cg";
 
 export const MeetingSchedule = () => {
@@ -42,66 +42,76 @@ export const MeetingSchedule = () => {
   return (
     <div
       className={cn(
-        "flex-1 flex flex-col items-center justify-center gap-4 md:gap-10 bg-teal-50/90 p-8 | rounded-xl | mb-6 relative overflow-clip"
+        "flex-1 flex flex-col items-center justify-center gap-4 md:gap-10  p-8 | rounded-xl | mb-6 relative overflow-clip"
       )}
     >
       <Skeleton>
-        {!showDayDetails && !showAddForm && (
-          <motion.div
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={{
-              initial: {
-                opacity: 0,
-                y: 500,
-              },
-              animate: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  ease: "easeIn",
+        <AnimatePresence initial={false} mode="popLayout">
+          {!showDayDetails && !showAddForm && (
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={{
+                initial: {
+                  opacity: 0,
+                  y: 500,
                 },
-              },
-              exit: {
-                opacity: 0,
-                y: 500,
-              },
-            }}
-            className="w-full h-full"
-          >
-            <MeetingCalender onChange={() => setShowDayDetails(true)} />
-          </motion.div>
-        )}
-        {showDayDetails && !showAddForm && (
-          <motion.div
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={{
-              initial: {
-                opacity: 0,
-                y: 500,
-              },
-              animate: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.5,
-                  ease: "easeIn",
+                animate: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.5,
+                    ease: "easeIn",
+                  },
                 },
-              },
-              exit: {
-                opacity: 0,
-                y: 500,
-              },
-            }}
-            className="w-full h-full bg-white"
-          >
-            <DayDetails onAdd={() => setShowAddForm(true)} />
-          </motion.div>
-        )}
+                exit: {
+                  opacity: 0,
+                  x: -500,
+                  transition: {
+                    duration: 0.4,
+                  },
+                },
+              }}
+              className="w-full h-full"
+            >
+              <MeetingCalender onChange={() => setShowDayDetails(true)} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence mode="popLayout">
+          {showDayDetails && !showAddForm && (
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={{
+                initial: {
+                  opacity: 0,
+                  y: 500,
+                },
+                animate: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.5,
+                    ease: "easeIn",
+                  },
+                },
+                exit: {
+                  opacity: 0,
+                  y: -500,
+                  transition: {
+                    duration: 0.4,
+                  },
+                },
+              }}
+              className="w-full h-full bg-white"
+            >
+              <DayDetails onAdd={() => setShowAddForm(true)} />
+            </motion.div>
+          )}
+        </AnimatePresence>
         {showAddForm && (
           <MeetingForm
             onSubmit={() => {
@@ -120,7 +130,21 @@ const MeetingForm = ({ onSubmit }: { onSubmit: () => void }) => {
   let [endTime, setEndTime] = React.useState(new Time(12, 45));
   const [title, setTitle] = React.useState("Meeting with Me");
   return (
-    <div className="w-full h-full flex flex-col">
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={{
+        exit: {
+          opacity: 0,
+          x: -500,
+          transition: {
+            duration: 0.4,
+          },
+        },
+      }}
+      className="w-full h-full flex flex-col"
+    >
       <motion.p
         initial="initial"
         animate="animate"
@@ -212,7 +236,7 @@ const MeetingForm = ({ onSubmit }: { onSubmit: () => void }) => {
           </Button>
         </Form>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
