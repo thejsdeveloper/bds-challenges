@@ -23,6 +23,7 @@ import {
   Messages,
   Homepage,
   MovieTickets,
+  MeetingSchedule,
 } from "./solutions";
 
 export const challenges = [
@@ -50,4 +51,5 @@ export const challenges = [
   { day: 22, title: "Messages", solution: Messages },
   { day: 23, title: "Homepage", solution: Homepage },
   { day: 24, title: "Movie Tickets", solution: MovieTickets },
+  { day: 25, title: "Meeting Scheduler", solution: MeetingSchedule },
 ];
