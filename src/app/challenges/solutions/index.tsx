@@ -23,3 +23,4 @@ export * from "./Messages";
 export * from "./Homepage";
 export * from "./MovieTickets";
 export * from "./MeetingSchedule";
+export * from "./JobBoard";
