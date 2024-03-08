@@ -35,7 +35,7 @@ export const JobBoard = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col items-center justify-center gap-4 md:gap-6  | rounded-xl | mb-6 relative overflow-clip">
+    <div className="flex-1 flex flex-col items-center justify-center gap-4 md:gap-6 mx-2  | rounded-xl | mb-6 relative overflow-clip">
       <JobSearchContainer>
         <SearchForm onSubmit={filterJobs} onClear={() => setJobs(JOBS)} />
       </JobSearchContainer>
@@ -152,7 +152,7 @@ const JobCard = ({ job }: JobCardProps) => {
       </Card.Header>
       <Card.Body>
         <TagGroup aria-label="skill group">
-          <TagList className="flex items-center gap-2">
+          <TagList className="flex items-center gap-2 flex-wrap">
             {job.skills.map((skill) => {
               return (
                 <Tag
@@ -198,7 +198,7 @@ const JobDetailsModal = ({
       isDismissable
       isKeyboardDismissDisabled
     >
-      <Modal className="bg-white w-full max-w-lg h-full max-h-[80%] border drop-shadow-2xl rounded-3xl p-6">
+      <Modal className="bg-white w-full mx-2 max-w-lg h-full max-h-[80%] border drop-shadow-2xl rounded-3xl p-6">
         <div className="bg-white w-full h-full flex flex-col items-start justify-start gap-4">
           <div className="p-2 bg-gray-200 rounded-lg">
             <Logo className="size-10" />
@@ -217,7 +217,7 @@ const JobDetailsModal = ({
           <hr className="w-full" />
           <h2 className="text-black text-lg font-semibold">Skills</h2>
           <TagGroup aria-label="skill group">
-            <TagList className="flex items-center gap-2">
+            <TagList className="flex items-center gap-2 flex-wrap">
               {job.skills.map((skill) => {
                 return (
                   <Tag
