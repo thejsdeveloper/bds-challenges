@@ -253,7 +253,7 @@ type JobSearchContainerProps = HTMLAttributes<HTMLDivElement>;
 const JobSearchContainer = (props: JobSearchContainerProps) => {
   return (
     <div
-      className="bg-violet-50 rounded-3xl  flex gap-4 w-full px-6 py-4"
+      className="bg-stone-200 rounded-3xl  flex gap-4 w-full px-6 py-4"
       {...props}
     />
   );
@@ -264,7 +264,7 @@ type ResultContainerProps = HTMLAttributes<HTMLDivElement>;
 const ResultContainer = (props: ResultContainerProps) => {
   return (
     <div
-      className="bg-violet-50 rounded-3xl flex-1 overflow-y-auto w-full p-6 space-y-6"
+      className="bg-stone-200 rounded-3xl flex-1 overflow-y-auto w-full p-6 space-y-6"
       {...props}
     />
   );
