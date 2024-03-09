@@ -43,7 +43,19 @@ export const LeaderBoard = () => {
           <TabList aria-label="Leaders" className="flex w-full justify-around">
             {tabs.map((tab) => (
               <LeaderTab id={tab} key={tab}>
-                {tab}
+                {({ isSelected }) => {
+                  return (
+                    <>
+                      {isSelected && (
+                        <motion.div
+                          className="absolute  inset-0 bg-neon/30  -z-10 rounded"
+                          layoutId="tab-bg"
+                        />
+                      )}
+                      <p className="z-50 px-2 py-1">{tab}</p>
+                    </>
+                  );
+                }}
               </LeaderTab>
             ))}
           </TabList>
@@ -124,12 +136,7 @@ function LeaderTab(props: TabProps) {
     <Tab
       {...props}
       className={({ isSelected }) => `
-        rounded-lg px-2 py-1 text-white font-medium text-sm text-center cursor-default outline-none transition-colors 
-        ${
-          isSelected
-            ? " bg-neon/30 shadow"
-            : " hover:bg-neon/20 pressed:bg-white/10"
-        }
+        relative  rounded-lg  text-white font-medium text-sm text-center cursor-default outline-none transition-colors 
       `}
     />
   );
