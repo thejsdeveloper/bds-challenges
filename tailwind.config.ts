@@ -13,6 +13,9 @@ const config: Config = {
         designer: "var(--ff-black)",
       },
       colors: {
+        neon: {
+          DEFAULT: "#33FF00",
+        },
         chai: {
           DEFAULT: "#FFA41B",
           dark: "#D46515",

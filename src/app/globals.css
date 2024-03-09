@@ -9,6 +9,19 @@
 }
 
 @layer utilities {
+  .challenge-27-clip {
+    clip-path: circle(88.6% at 48% 4%);
+  }
+
+  .scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scroll {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
   .chai-checkbox {
     @apply appearance-none w-4 h-4 border-2 border-black/90 rounded-sm mt-1 shrink-0 checked:bg-chai checked:border-0;
   }
