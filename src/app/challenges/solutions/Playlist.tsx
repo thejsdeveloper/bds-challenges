@@ -3,20 +3,14 @@ import { PLAYLIST, Track } from "@/app/api/challenges/Playlist/data";
 import { LikeIcon } from "@/app/components/LikeIcon/LikeIcon";
 import { MobileSkeleton } from "@/app/components/MobileSkeleton/MobileSkeleton";
 import { cn } from "@/app/utils/cn";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import React, { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useState } from "react";
+import { ProgressBar } from "react-aria-components";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaBackward, FaChevronLeft, FaForward } from "react-icons/fa6";
 import { IoPlay } from "react-icons/io5";
 import { LuDot } from "react-icons/lu";
-import {
-  AnimatePresence,
-  motion,
-  useAnimate,
-  useDragControls,
-} from "framer-motion";
-import { FaFastForward } from "react-icons/fa";
-import { ProgressBar } from "react-aria-components";
 
 export const Playlist = () => {
   return (

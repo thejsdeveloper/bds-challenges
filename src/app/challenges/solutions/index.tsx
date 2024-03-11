@@ -26,3 +26,4 @@ export * from "./MeetingSchedule";
 export * from "./JobBoard";
 export * from "./Leaderboard";
 export * from "./Playlist";
+export * from "./VideoPlayer";
