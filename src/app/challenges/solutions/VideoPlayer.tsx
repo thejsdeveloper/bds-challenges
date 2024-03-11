@@ -7,13 +7,14 @@ import { Avatar } from "@/app/components/Avatar/Avatar";
 import { LikeIcon } from "@/app/components/LikeIcon/LikeIcon";
 import { formatDistance } from "date-fns";
 import Image from "next/image";
+import { ListBox, ListBoxItem } from "react-aria-components";
 import { BsFillEyeFill } from "react-icons/bs";
 import { FaShareNodes, FaThumbsUp } from "react-icons/fa6";
 
 export const VideoPlayer = () => {
   return (
     <div className="flex-1 grid grid-flow-col grid-cols-3   place-content-center gap-4 md:gap-6 mx-2  | mb-6 relative overflow-clip">
-      <div className="flex flex-col col-span-2 gap-4 md:gap-6 text-white">
+      <div className="flex flex-col col-span-2 gap-4 md:gap-6 text-white ">
         <video controls className="aspect-video rounded-3xl w-full">
           <source src={SKATEBOARD_VIDEO.source} type="video/mp4" />
         </video>
@@ -79,32 +80,54 @@ export const VideoPlayer = () => {
 
 const RelatedVideos = () => {
   return (
-    <div className="grid gap-4 bg-violet-950 rounded-3xl text-white p-6">
+    <div className="grid gap-6 bg-violet-950 rounded-3xl text-white p-6">
       <h2 className="text-xl font-semibold">Related videos</h2>
-      {RELATED_VIDEOS.map((video) => (
-        <div key={video.id} className="flex items-center gap-4">
-          <Image
-            src={video.cover}
-            alt={video.description}
-            width={100}
-            height={100}
-            className="h-20 aspect-video object-cover rounded-xl"
-          />
-          <div className="flex flex-col gap-2 justify-center">
-            <p className="text-base font-semibold text-wrap">{video.title}</p>
-            <p className="text-xs text-white/80">{video.creator.name}</p>
-            <div className="flex gap-1 items-center">
-              <p className="text-xs text-white/80">{video.views} views</p>
-              <span className="text-xs text-white/80">·</span>
-              <p className="text-xs text-white/80">
-                {formatDistance(video.createdAt, Date.now(), {
-                  addSuffix: true,
-                })}
+      <ListBox
+        items={RELATED_VIDEOS}
+        aria-label="Related Videos"
+        className="space-y-4"
+      >
+        {(item) => (
+          <ListBoxItem
+            textValue="Related Videos"
+            className="group flex items-center gap-4 p-2
+            rounded-xl
+              outline-none cursor-default
+            hover:bg-violet-200 focus-visible:bg-white
+            focus-visible:text-violet-950
+            focus-visible:ring-2 ring-offset-2 ring-violet-500
+            transition-all
+            "
+          >
+            <Image
+              src={item.cover}
+              alt={item.description}
+              width={100}
+              height={100}
+              className="h-20 aspect-video object-cover rounded-xl"
+            />
+            <div className="flex flex-col gap-2 justify-center">
+              <p className="text-base font-semibold text-wrap">{item.title}</p>
+              <p className="text-xs text-white/80 group-focus-visible:text-violet-500">
+                {item.creator.name}
               </p>
+              <div className="flex gap-1 items-center">
+                <p className="text-xs text-white/80 group-focus-visible:text-violet-500">
+                  {item.views} views
+                </p>
+                <span className="text-xs text-white/80 group-focus-visible:text-violet-500">
+                  ·
+                </span>
+                <p className="text-xs text-white/80 group-focus-visible:text-violet-500">
+                  {formatDistance(item.createdAt, Date.now(), {
+                    addSuffix: true,
+                  })}
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
-      ))}
+          </ListBoxItem>
+        )}
+      </ListBox>
     </div>
   );
 };
