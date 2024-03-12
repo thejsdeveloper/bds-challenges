@@ -8,7 +8,6 @@ export const useSound = (soundUrl: string) => {
   const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
 
-  console.log({ soundUrl });
   const audioRef = useRef<HTMLAudioElement>(new Audio(soundUrl));
 
   useEffect(() => {

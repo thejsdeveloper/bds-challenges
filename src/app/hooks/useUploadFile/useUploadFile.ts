@@ -34,7 +34,6 @@ export const useUploadFile = (): UseUploadFileHook => {
         const res = await edgestore.publicFiles.upload({
           file,
           onProgressChange: (progress) => {
-            console.log({ progress });
             setUploadProgress(progress);
           },
           options: {
