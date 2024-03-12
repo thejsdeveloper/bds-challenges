@@ -27,3 +27,4 @@ export * from "./JobBoard";
 export * from "./Leaderboard";
 export * from "./Playlist";
 export * from "./VideoPlayer";
+export * from "./Invoices";

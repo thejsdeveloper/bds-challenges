@@ -1,6 +1,12 @@
 export const formatDate = (date: Date) => {
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat("en-IN", {
     dateStyle: "short",
+  }).format(date);
+};
+
+export const formatDateLong = (date: Date) => {
+  return new Intl.DateTimeFormat("en-IN", {
+    dateStyle: "long",
   }).format(date);
 };
 
