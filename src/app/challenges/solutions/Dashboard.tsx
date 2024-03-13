@@ -13,6 +13,7 @@ import {
   NavigationMenuList,
 } from "@radix-ui/react-navigation-menu";
 import { LayoutDashboardIcon } from "lucide-react";
+import { useForm } from "react-hook-form";
 import { BiBell, BiLogOut } from "react-icons/bi";
 import { BsDatabaseDown } from "react-icons/bs";
 import { CiCircleMore } from "react-icons/ci";
@@ -22,7 +23,26 @@ import {
   FaArrowUpRightFromSquare,
 } from "react-icons/fa6";
 import { FcBiotech } from "react-icons/fc";
-import { MdUpgrade } from "react-icons/md";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { addDays, format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+import { z } from "zod";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { FaFilter } from "react-icons/fa";
 
 export const Dashboard = () => {
   return (
@@ -79,19 +99,25 @@ export const Dashboard = () => {
           <h1 className="text-3xl font-medium">Welcome Jason</h1>
           <div>
             <Tabs defaultValue="overview">
-              <TabsList className="bg-transparent gap-4 text-white">
+              <TabsList className="bg-transparent gap-4 text-white  w-full">
                 <TabsTrigger
                   value="overview"
-                  className="data-[state=active]:bg-neutral-500/40 data-[state=active]:text-white"
+                  className="data-[state=active]:bg-neutral-500/40 data-[state=active]:text-white hover:bg-neutral-500"
                 >
                   Overview
                 </TabsTrigger>
                 <TabsTrigger
                   value="partner_network"
-                  className="data-[state=active]:bg-neutral-500/40 data-[state=active]:text-white"
+                  className="data-[state=active]:bg-neutral-500/40 data-[state=active]:text-white hover:bg-neutral-500"
                 >
                   Partner Network
                 </TabsTrigger>
+                <div className="flex gap-4 flex-1  justify-end">
+                  <CalendarForm />
+                  <Button className="flex gap-2 bg-neutral-500/50 hover:bg-neutral-500">
+                    <FaFilter /> Filter
+                  </Button>
+                </div>
               </TabsList>
               <TabsContent value="overview">
                 <div className="flex items-center gap-4 ">
@@ -209,28 +235,76 @@ export const Dashboard = () => {
   );
 };
 
-// const ListItem = React.forwardRef<
-//   React.ElementRef<"a">,
-//   React.ComponentPropsWithoutRef<"a">
-// >(({ className, title, children, ...props }, ref) => {
-//   return (
-//     <li>
-//       <NavigationMenuLink asChild>
-//         <a
-//           ref={ref}
-//           className={cn(
-//             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-//             className
-//           )}
-//           {...props}
-//         >
-//           <div className="text-sm font-medium leading-none">{title}</div>
-//           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-//             {children}
-//           </p>
-//         </a>
-//       </NavigationMenuLink>
-//     </li>
-//   );
-// });
-// ListItem.displayName = "ListItem";
+const DateSchema = z.object({
+  from: z.date(),
+  to: z.date(),
+});
+const FormSchema = z.object({
+  date: DateSchema,
+});
+
+export function CalendarForm() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      date: {
+        from: new Date(),
+        to: addDays(new Date(), 4),
+      },
+    },
+  });
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    console.log("you have selected a date");
+  }
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <FormField
+          control={form.control}
+          name="date"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        "w-[180px] pl-3 text-left font-normal text-black",
+                        !field.value && "text-muted-foreground"
+                      )}
+                    >
+                      {field.value ? (
+                        <>
+                          {format(field.value.from, "MMM dd")} -
+                          {format(field.value.to, "MMM dd")}
+                        </>
+                      ) : (
+                        <span>Pick a date</span>
+                      )}
+                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="range"
+                    selected={field.value}
+                    onSelect={field.onChange}
+                    disabled={(date) =>
+                      date > new Date() || date < new Date("1900-01-01")
+                    }
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </form>
+    </Form>
+  );
+}
