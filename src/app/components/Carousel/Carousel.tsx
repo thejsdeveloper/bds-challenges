@@ -102,14 +102,7 @@ export const ImagePreviewStrip = () => {
             variants={getPreviewVariants(selected)}
             {...variantsKeys}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              priority
-              width={800}
-              height={460}
-            />
+            <Image src={image.src} alt={image.alt} fill priority />
           </motion.button>
         );
       })}
