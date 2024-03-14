@@ -30,6 +30,7 @@ import {
   VideoPlayer,
   Invoices,
   Dashboard,
+  Newsletter,
 } from "./solutions";
 
 export const challenges = [
@@ -64,4 +65,5 @@ export const challenges = [
   { day: 29, title: "Video Player", solution: VideoPlayer },
   { day: 30, title: "Invoices", solution: Invoices },
   { day: 31, title: "Dashboard", solution: Dashboard },
+  { day: 32, title: "Newsletter", solution: Newsletter },
 ];

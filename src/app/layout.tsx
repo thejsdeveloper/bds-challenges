@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Black_Ops_One, Inter } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"], variable: "--ff-inter" });
 const blackOpsOne = Black_Ops_One({
@@ -25,6 +26,7 @@ export default function RootLayout({
         {children}
         <bds />
       </body>
+      <Toaster />
     </html>
   );
 }

@@ -3,38 +3,13 @@ import { NAVIGATION } from "@/app/api/challenges/Dashboard/data";
 import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
-import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-} from "@radix-ui/react-navigation-menu";
-import { LayoutDashboardIcon } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { BiBell, BiLogOut } from "react-icons/bi";
-import { BsDatabaseDown } from "react-icons/bs";
-import { CiCircleMore } from "react-icons/ci";
-import {
-  FaArrowDown,
-  FaArrowUp,
-  FaArrowUpRightFromSquare,
-} from "react-icons/fa6";
-import { FcBiotech } from "react-icons/fc";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { addDays, format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
-import { z } from "zod";
 import { Calendar } from "@/components/ui/calendar";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import {
@@ -42,7 +17,29 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+} from "@radix-ui/react-navigation-menu";
+import { addDays, format } from "date-fns";
+import { CalendarIcon, LayoutDashboardIcon } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { BiBell, BiLogOut } from "react-icons/bi";
+import { BsDatabaseDown } from "react-icons/bs";
+import { CiCircleMore } from "react-icons/ci";
 import { FaFilter } from "react-icons/fa";
+import {
+  FaArrowDown,
+  FaArrowUp,
+  FaArrowUpRightFromSquare,
+} from "react-icons/fa6";
+import { FcBiotech } from "react-icons/fc";
+import { z } from "zod";
 
 export const Dashboard = () => {
   return (

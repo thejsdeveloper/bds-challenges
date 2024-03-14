@@ -29,3 +29,4 @@ export * from "./Playlist";
 export * from "./VideoPlayer";
 export * from "./Invoices";
 export * from "./Dashboard";
+export * from "./Newsletter";
