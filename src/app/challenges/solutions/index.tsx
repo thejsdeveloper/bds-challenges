@@ -31,3 +31,4 @@ export * from "./Invoices";
 export * from "./Dashboard";
 export * from "./Newsletter";
 export * from "./BrandVisualiser";
+export * from "./UserProfile";
