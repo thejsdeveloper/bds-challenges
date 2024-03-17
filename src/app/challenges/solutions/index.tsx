@@ -32,3 +32,4 @@ export * from "./Dashboard";
 export * from "./Newsletter";
 export * from "./BrandVisualiser";
 export * from "./UserProfile";
+export * from "./RateUs";
