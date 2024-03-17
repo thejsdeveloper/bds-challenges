@@ -60,7 +60,8 @@ export const RateUs = () => {
                     setFeedback(item.name);
                     toast({
                       variant: "default",
-                      description: "Thank you for your feedback",
+                      title: "Thank you for your feedback",
+                      description: `Your feedback is: ${item.emoji}`,
                     });
                   }}
                 >
