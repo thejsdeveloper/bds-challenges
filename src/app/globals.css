@@ -80,6 +80,10 @@
     clip-path: circle(88.6% at 48% 4%);
   }
 
+  .challenge-36-clip {
+    clip-path: circle(61% at 50% 40%);
+  }
+
   .scroll::-webkit-scrollbar {
     display: none;
   }

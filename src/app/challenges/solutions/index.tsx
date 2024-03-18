@@ -33,3 +33,4 @@ export * from "./Newsletter";
 export * from "./BrandVisualiser";
 export * from "./UserProfile";
 export * from "./RateUs";
+export * from "./SleepApp";

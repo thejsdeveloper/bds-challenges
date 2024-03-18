@@ -49,7 +49,6 @@ export const Playlist = () => {
           onNextClick={handleNextClick}
           onPrevClick={handlePrevClick}
         />
-        ;
       </MobileSkeleton>
     </div>
   );
