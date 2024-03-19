@@ -34,3 +34,4 @@ export * from "./BrandVisualiser";
 export * from "./UserProfile";
 export * from "./RateUs";
 export * from "./SleepApp";
+export * from "./ExploreFlights";
