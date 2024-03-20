@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      height: {
+        view: "calc(100vh - 80px)",
+      },
       fontFamily: {
         inter: "var(--ff-inter)",
         designer: "var(--ff-black)",

@@ -33,7 +33,6 @@ export const ExploreFlights = () => {
   return (
     <div className="flex  justify-center gap-4 md:gap-6 mx-2 px-2 md:px-6  | rounded-xl | overflow-clip">
       <FlightBooking />
-      {/* <RadioGroupForm /> */}
     </div>
   );
 };
