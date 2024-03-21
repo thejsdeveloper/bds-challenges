@@ -36,3 +36,4 @@ export * from "./RateUs";
 export * from "./SleepApp";
 export * from "./ExploreFlights";
 export * from "./MusicFestival";
+export * from "./QRCodeScanner";
