@@ -37,3 +37,4 @@ export * from "./SleepApp";
 export * from "./ExploreFlights";
 export * from "./MusicFestival";
 export * from "./QRCodeScanner";
+export * from "./FAQ";

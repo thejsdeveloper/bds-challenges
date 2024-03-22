@@ -38,6 +38,7 @@ import {
   ExploreFlights,
   MusicFestival,
   QRCodeScanner,
+  FAQ,
 } from "./solutions";
 
 export const challenges = [
@@ -80,4 +81,5 @@ export const challenges = [
   { day: 37, title: "Explore Flights", solution: ExploreFlights },
   { day: 38, title: "Music Festival", solution: MusicFestival },
   { day: 39, title: "QR Code", solution: QRCodeScanner },
+  { day: 40, title: "FAQ", solution: FAQ },
 ];
