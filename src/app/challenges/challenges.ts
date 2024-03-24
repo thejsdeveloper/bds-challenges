@@ -40,6 +40,7 @@ import {
   QRCodeScanner,
   FAQ,
   Workspace,
+  SettingsAppearance,
 } from "./solutions";
 
 export const challenges = [
@@ -84,4 +85,5 @@ export const challenges = [
   { day: 39, title: "QR Code", solution: QRCodeScanner },
   { day: 40, title: "FAQ", solution: FAQ },
   { day: 41, title: "FAQ", solution: Workspace },
+  { day: 42, title: "Settings Appearance", solution: SettingsAppearance },
 ];
