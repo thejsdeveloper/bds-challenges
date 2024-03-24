@@ -228,11 +228,18 @@ const ThemeToggleGroup = ({
 }) => {
   const { isLight, accent } = useTheme();
 
+  const ringColor: Record<AccentColors, `ring-${AccentColors}`> = {
+    "green-500": "ring-green-500",
+    "pink-500": "ring-pink-500",
+    "violet-500": "ring-violet-500",
+    "yellow-500": "ring-yellow-500",
+  };
+
   return (
     <ToggleGroupItem
       className={cn(
         "relative h-auto p-0 flex-1 transition-colors",
-        selected && `ring-2 ring-${accent}`
+        selected && `ring-2 ${ringColor[accent]}`
       )}
       value={value}
       aria-label="Toggle Light theme"
@@ -301,7 +308,7 @@ const ThemeCard = ({ theme }: { theme: Theme }) => {
 
 const ACCENT_COLORS = [
   "violet-500",
-  "green-400",
+  "green-500",
   "pink-500",
   "yellow-500",
 ] as const;
@@ -321,7 +328,7 @@ const defaultValues: ThemeContextProps = {
   theme: "light",
   toggleTheme: () => {},
   isLight: true,
-  accent: "green-400",
+  accent: "green-500",
   setAccent: () => {},
   reset: () => {},
 };
@@ -334,7 +341,7 @@ interface Props {
 
 export const ThemeProvider = ({ children }: Props) => {
   const [theme, setTheme] = useState<Theme>("light");
-  const [accent, setAccent] = useState<AccentColors>("green-400");
+  const [accent, setAccent] = useState<AccentColors>("green-500");
   const [isLight, setIsLight] = useState(true);
 
   const toggleTheme = () => {
@@ -349,7 +356,7 @@ export const ThemeProvider = ({ children }: Props) => {
   const reset = () => {
     setTheme("light");
     setIsLight(true);
-    setAccent("green-400");
+    setAccent("green-500");
   };
 
   return (
