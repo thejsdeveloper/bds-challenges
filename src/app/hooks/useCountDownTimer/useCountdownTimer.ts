@@ -41,11 +41,19 @@ const useCountdownTimer = (targetDate: Date) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+    let timerId: NodeJS.Timeout;
 
-    return () => clearTimeout(timerId);
+    if (!timeLeft.finished) {
+      timerId = setTimeout(() => {
+        setTimeLeft(calculateTimeLeft());
+      }, 1000);
+    }
+
+    return () => {
+      if (timerId) {
+        clearTimeout(timerId);
+      }
+    };
   }, [timeLeft, calculateTimeLeft]);
 
   return timeLeft;
