@@ -42,3 +42,4 @@ export * from "./Workspace";
 export * from "./SettingsAppearance";
 export * from "./PlayerProfile";
 export * from "./WebsiteLaunch";
+export * from "./HostingFeatures";
