@@ -44,6 +44,7 @@ import {
   PlayerProfile,
   WebsiteLaunch,
   HostingFeatures,
+  CustomerList,
 } from "./solutions";
 
 export const challenges = [
@@ -92,4 +93,5 @@ export const challenges = [
   { day: 43, title: "Player Profile", solution: PlayerProfile },
   { day: 44, title: "Website Launch", solution: WebsiteLaunch },
   { day: 45, title: "Hosting Features", solution: HostingFeatures },
+  { day: 46, title: "Customer List", solution: CustomerList },
 ];
